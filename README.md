@@ -8,7 +8,7 @@ A single-page profile with clickable project pages, built with plain HTML/CSS/JS
 - `project.html` - a generic project page, filled in from `projects.js` based on the `?id=` in the URL
 - `projects.js` - all project data (title, dates, description, links, images) in one place
 - `style.css` - shared styling
-- `main.js` - renders the project cards on the home page
+- `main.js` - renders the project list on the home page
 - `project.js` - renders a single project's detail page
 - `images/` - put project screenshots here
 

@@ -1,26 +1,20 @@
-function renderProjectGrid() {
-  var grid = document.getElementById("project-grid");
+function renderProjectList() {
+  var list = document.getElementById("project-list");
   window.projects.forEach(function (project) {
-    var card = document.createElement("a");
-    card.className = "project-card";
-    card.href = "project.html?id=" + encodeURIComponent(project.slug);
+    var item = document.createElement("li");
 
-    var title = document.createElement("h3");
-    title.textContent = project.title;
+    var link = document.createElement("a");
+    link.href = "project.html?id=" + encodeURIComponent(project.slug);
+    link.textContent = project.title;
 
-    var period = document.createElement("p");
+    var period = document.createElement("span");
     period.className = "period";
     period.textContent = project.period;
 
-    var summary = document.createElement("p");
-    summary.className = "summary";
-    summary.textContent = project.summary;
-
-    card.appendChild(title);
-    card.appendChild(period);
-    card.appendChild(summary);
-    grid.appendChild(card);
+    item.appendChild(link);
+    item.appendChild(period);
+    list.appendChild(item);
   });
 }
 
-renderProjectGrid();
+renderProjectList();
