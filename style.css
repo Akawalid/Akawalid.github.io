@@ -37,6 +37,15 @@ footer {
   padding-bottom: 0;
 }
 
+.signal-portrait {
+  display: block;
+  width: 200px;
+  height: auto;
+  margin: 0 0 20px;
+  opacity: 1;
+  filter: drop-shadow(0 0 10px rgba(60, 255, 130, 0.35));
+}
+
 .site-header h1 {
   margin: 0 0 6px;
   font-size: 1.8rem;
