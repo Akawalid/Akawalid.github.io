@@ -14,6 +14,7 @@
   var ctx = canvas.getContext("2d");
 
   var AMP = 9; // px, vertical deflection of the trace per brightness sample
+  var STROKE = "rgba(20,20,20,0.9)"; // black traces, transparent background
 
   fetch("images/signal-matrix.bin")
     .then(function (res) { return res.arrayBuffer(); })
@@ -58,10 +59,9 @@
     function frame(t) {
       var elapsed = (t - start) / 1000;
 
-      ctx.fillStyle = "#000";
-      ctx.fillRect(0, 0, w, h);
+      ctx.clearRect(0, 0, w, h);
 
-      ctx.strokeStyle = "rgba(235,235,235,0.95)";
+      ctx.strokeStyle = STROKE;
       ctx.lineWidth = 1;
       rows.forEach(function (row) {
         var wobble = Math.sin(elapsed * 1.1 + row.seed) * 0.35;
