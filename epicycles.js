@@ -1,21 +1,23 @@
 // Draws the profile portrait as a Fourier series of rotating circles
-// (epicycles): the silhouette's outline is one closed path, decomposed by a
-// discrete Fourier transform into circular terms - each term a circle whose
-// center rides on the circumference of the previous one, spinning at its
-// own constant speed. Summed together, the last circle's tip traces the
-// original outline.
+// (epicycles). The source is the same raster "signal" as the waveform
+// version - one continuous sweep across every scanline of the (background
+// removed) photo, each row wobbling with its real brightness - flattened
+// into a single closed path and decomposed by a discrete Fourier transform.
+// Each term is a circle whose center rides the circumference of the
+// previous one, spinning at its own constant speed; summed together, the
+// last circle's tip retraces that whole signal, not just its outline.
 //
 // images/signal-epicycles.bin holds that decomposition: for each term, its
-// integer frequency (how many turns per loop), radius (amplitude) and
-// starting phase - the real math behind the drawing, not a picture of it.
-// This script fetches it, then animates the chain live on a canvas.
+// integer frequency (turns per loop), radius (amplitude) and starting phase
+// - the real math behind the drawing, not a picture of it. This script
+// fetches it, then animates the chain live on a canvas.
 
 (function () {
   var canvas = document.getElementById("signal-canvas");
   if (!canvas || !canvas.getContext) return;
   var ctx = canvas.getContext("2d");
 
-  var PERIOD_MS = 9000; // one full lap of the outline
+  var PERIOD_MS = 3000; // one full lap - faster spin
 
   fetch("images/signal-epicycles.bin")
     .then(function (res) { return res.arrayBuffer(); })
@@ -54,9 +56,9 @@
     var originX = w / 2;
     var originY = h / 2;
 
-    // precompute the full closed outline once - it's exactly periodic, so
+    // precompute the full closed signal once - it's exactly periodic, so
     // this is the real, complete traced path, always fully visible
-    var TRAIL_STEPS = 500;
+    var TRAIL_STEPS = 2600;
     var trail = new Path2D();
     for (var s = 0; s <= TRAIL_STEPS; s++) {
       var tt = (2 * Math.PI * s) / TRAIL_STEPS;
