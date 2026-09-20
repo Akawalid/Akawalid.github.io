@@ -1,25 +1,30 @@
 // Draws the profile portrait as Fourier series of rotating circles
-// (epicycles). Rather than one full raster signal, this traces just the
-// meaningful contours from the (background-removed) photo - the outer
-// silhouette, both eyes, the mouth - each its own closed path, each
-// decomposed independently by a discrete Fourier transform. Every term is
-// a circle whose center rides the circumference of the previous one,
-// spinning at its own constant speed; summed together, a group's last
-// circle retraces that one contour. All groups share one coordinate frame
-// (the silhouette's centroid), so despite animating independently they
-// stay correctly placed relative to each other.
+// (epicycles), tracing the meaningful contours from the photo: the outer
+// silhouette, both eyes, the nose, the mouth - real landmarks, smoothed
+// into clean periodic curves, each its own closed path.
 //
-// images/signal-epicycles.bin holds the decomposition: per group, its
-// terms as (integer frequency, radius, starting phase) - the real math
-// behind the drawing, not a picture of it. This script fetches it, then
-// animates every chain live on a canvas.
+// Per the classic "two epicycle wheels" construction, each contour is
+// decomposed into TWO independent real Fourier series - one reconstructing
+// its X(t), one its Y(t) - rather than a single complex series. Each shared
+// frequency k therefore carries its own (amplitude, phase) pair for X and
+// for Y, so the term traces an ellipse in general (a circle only when the
+// X/Y amplitudes and phases happen to match); chaining them the usual way
+// (each term's center riding the previous one's rim) still sums to the
+// exact original curve. All groups share one coordinate frame (the
+// silhouette's centroid), so they stay correctly placed relative to each
+// other despite animating independently.
+//
+// images/signal-epicycles.bin holds the decomposition: per group, per term,
+// its integer frequency and its (ampX, phaseX, ampY, phaseY) - the real
+// math behind the drawing, not a picture of it. This script fetches it,
+// then animates every chain live on a canvas.
 
 (function () {
   var canvas = document.getElementById("signal-canvas");
   if (!canvas || !canvas.getContext) return;
   var ctx = canvas.getContext("2d");
 
-  var PERIOD_MS = 3000; // one full lap
+  var PERIOD_MS = 4200; // one full lap
 
   fetch("images/signal-epicycles.bin")
     .then(function (res) { return res.arrayBuffer(); })
@@ -31,7 +36,7 @@
     var magic = String.fromCharCode(
       view.getUint8(0), view.getUint8(1), view.getUint8(2), view.getUint8(3)
     );
-    if (magic !== "EPI2") return;
+    if (magic !== "EPI4") return;
 
     var offset = 4;
     var halfW = view.getFloat32(offset, true); offset += 4;
@@ -44,11 +49,15 @@
       var terms = [];
       for (var i = 0; i < count; i++) {
         var freq = view.getInt16(offset, true); offset += 2;
-        var amp = view.getFloat32(offset, true); offset += 4;
-        var phase = view.getFloat32(offset, true); offset += 4;
-        terms.push({ freq: freq, amp: amp, phase: phase });
+        var ampX = view.getFloat32(offset, true); offset += 4;
+        var phaseX = view.getFloat32(offset, true); offset += 4;
+        var ampY = view.getFloat32(offset, true); offset += 4;
+        var phaseY = view.getFloat32(offset, true); offset += 4;
+        terms.push({ freq: freq, ax: ampX, px: phaseX, ay: ampY, py: phaseY });
       }
-      terms.sort(function (a, b) { return b.amp - a.amp; });
+      terms.sort(function (a, b) {
+        return Math.max(Math.abs(b.ax), Math.abs(b.ay)) - Math.max(Math.abs(a.ax), Math.abs(a.ay));
+      });
       groups.push(terms);
     }
 
@@ -63,26 +72,25 @@
     var originY = h / 2;
 
     function sumAt(terms, t) {
-      var re = 0, im = 0;
+      var x = 0, y = 0;
       for (var k = 0; k < terms.length; k++) {
         var term = terms[k];
-        var ang = term.freq * t + term.phase;
-        re += term.amp * Math.cos(ang);
-        im += term.amp * Math.sin(ang);
+        x += term.ax * Math.cos(term.freq * t + term.px);
+        y += term.ay * Math.cos(term.freq * t + term.py);
       }
-      return { re: re, im: im };
+      return { x: x, y: y };
     }
 
-    // precompute each group's full closed path once - exactly periodic,
-    // so this is the real, complete contour, always fully visible
-    var TRAIL_STEPS = 500;
+    // precompute each group's full closed contour once - exactly periodic,
+    // so this is the real, complete curve, always fully visible
+    var TRAIL_STEPS = 420;
     var trails = groups.map(function (terms) {
       var path = new Path2D();
       for (var s = 0; s <= TRAIL_STEPS; s++) {
         var tt = (2 * Math.PI * s) / TRAIL_STEPS;
         var p = sumAt(terms, tt);
-        var px = originX + p.re * scale;
-        var py = originY - p.im * scale;
+        var px = originX + p.x * scale;
+        var py = originY + p.y * scale;
         if (s === 0) path.moveTo(px, py); else path.lineTo(px, py);
       }
       return path;
@@ -104,28 +112,29 @@
         ctx.lineWidth = 1;
         for (var k = 0; k < terms.length; k++) {
           var term = terms[k];
-          var r = term.amp * scale;
-          var ang = term.freq * t + term.phase;
-          var nx = x + r * Math.cos(ang);
-          var ny = y - r * Math.sin(ang);
+          var rx = Math.abs(term.ax) * scale;
+          var ry = Math.abs(term.ay) * scale;
+          var ang = term.freq * t;
+          var nx = x + term.ax * scale * Math.cos(ang + term.px);
+          var ny = y + term.ay * scale * Math.cos(ang + term.py);
 
-          if (r > 1) {
+          if (rx > 1 || ry > 1) {
             ctx.beginPath();
-            ctx.arc(x, y, r, 0, Math.PI * 2);
-            ctx.strokeStyle = "rgba(43,90,160,0.16)";
+            ctx.ellipse(x, y, Math.max(rx, 0.5), Math.max(ry, 0.5), 0, 0, Math.PI * 2);
+            ctx.strokeStyle = "rgba(43,90,160,0.15)";
             ctx.stroke();
           }
           ctx.beginPath();
           ctx.moveTo(x, y);
           ctx.lineTo(nx, ny);
-          ctx.strokeStyle = "rgba(43,90,160,0.35)";
+          ctx.strokeStyle = "rgba(43,90,160,0.32)";
           ctx.stroke();
 
           x = nx; y = ny;
         }
 
         ctx.beginPath();
-        ctx.arc(x, y, 2.2, 0, Math.PI * 2);
+        ctx.arc(x, y, 2, 0, Math.PI * 2);
         ctx.fillStyle = "rgba(200,40,40,0.9)";
         ctx.fill();
       });
