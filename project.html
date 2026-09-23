@@ -6,19 +6,41 @@
 <title id="page-title">Project</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </head>
 <body>
 
 <header class="site-header small">
-  <a href="index.html" class="back-link">&larr; Back to profile</a>
+  <div class="top-bar">
+    <p class="last-updated"><span data-i18n="lastUpdated"></span>: <span data-i18n="lastUpdatedValue"></span></p>
+    <div class="lang-switch">
+      <button type="button" data-lang="en" aria-label="English">
+        <svg viewBox="0 0 60 30" width="20" height="10"><rect width="60" height="30" fill="#00247d"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#cf142b" stroke-width="2"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#cf142b" stroke-width="6"/></svg>
+        <span>English</span>
+      </button>
+      <button type="button" data-lang="fr" aria-label="Français">
+        <svg viewBox="0 0 3 2" width="20" height="13"><rect width="1" height="2" x="0" fill="#0055A4"/><rect width="1" height="2" x="1" fill="#fff"/><rect width="1" height="2" x="2" fill="#EF4135"/></svg>
+        <span>Français</span>
+      </button>
+      <button type="button" data-lang="kab" aria-label="Taqbaylit">
+        <svg viewBox="0 0 90 60" width="20" height="13"><rect width="90" height="20" y="0" fill="#1FB5E0"/><rect width="90" height="20" y="20" fill="#1CA64B"/><rect width="90" height="20" y="40" fill="#FCD116"/><text x="45" y="43" font-size="32" text-anchor="middle" fill="#D21F3C" font-family="'Noto Sans Tifinagh', sans-serif">ⵣ</text></svg>
+        <span>Taqbaylit</span>
+      </button>
+    </div>
+  </div>
+  <a href="index.html" class="back-link" data-i18n="backLink"></a>
 </header>
 
 <main>
   <article id="project-detail"></article>
 </main>
 
+<script src="i18n.js"></script>
+<script src="lang.js"></script>
 <script src="projects.js"></script>
 <script src="project.js"></script>
 </body>

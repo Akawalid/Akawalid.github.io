@@ -1,0 +1,187 @@
+// Trilingual UI strings (English / French / Kabyle in Tifinagh).
+//
+// A note on the Kabyle: proper nouns, institution names, program acronyms
+// and highly specialized ML/CS jargon without an established Kabyle term
+// are kept as French/English loanwords embedded in the Tifinagh text -
+// this mirrors how Kabyle is actually written in technical contexts, not
+// a shortcut. The rest is genuine Kabyle, transliterated to Tifinagh by
+// hand; if a native speaker spots something off, it's worth a fix.
+
+window.i18n = {
+  en: {
+    langName: "English",
+    tagline: "Master's student, Mathematics, Vision and Learning (MVA), ENS Paris-Saclay - Machine Learning & Scientific Computing",
+    honorLine: "Sophie Germain Excellence Scholarship, Jacques-Hadamard Foundation (2026-2027)",
+    contactEmail: "Email",
+    contactInstitutionalEmail: "Institutional email",
+    contactGitHub: "GitHub",
+    contactLinkedIn: "LinkedIn",
+    contactDob: "Date of birth",
+    dob: "2 January 2004",
+    contactLocation: "Location",
+    location: "France",
+    lastUpdated: "Last updated",
+    lastUpdatedValue: "20 September 2026, 23:26 CEST",
+    researchAt: "Research internship at",
+    moreDetails: "More details",
+    courseworkLabel: "Coursework",
+    navAbout: "About",
+    navEducation: "Education",
+    navSkills: "Skills",
+    navResearch: "Research Experience",
+    navPublications: "Publications",
+    publications: [
+      "O. Chabane, L. Sun, S. Chevallier, J. Peter, J.-L. Hantrais-Gervois. Manuscript in preparation, based on the machine learning challenge described above."
+    ],
+    navProjects: "Projects",
+    navAwards: "Awards & Honours",
+    about: "I am a Master's student in Mathematics, Vision and Learning (MVA) at École Normale Supérieure Paris-Saclay, with a background in a Double Bachelor's Degree in Mathematics and Computer Science and a Magistère in Computer Science at the University of Paris-Saclay. My work spans scientific machine learning, geometric and equivariant deep learning, and formal program verification, through research internships at LISN and the Laboratory of Formal Methods. I also coach students for the African and International Olympiads in AI.",
+    education: [
+      { years: "2026 - 2027", text: "MVA Master's (Mathematics, Vision and Learning), École Normale Supérieure Paris-Saclay", coursework: "(in construction) Optimal Transport for Machine Learning, Convex Optimization and Applications, Geometry Processing and Geometric Deep Learning, Reinforcement Learning, Learning for Time Series" },
+      { years: "2025 - 2026", text: "Master's in Artificial Intelligence and Magistère in Computer Science, University of Paris-Saclay - 16.5/20 (18.34/20 in mathematics)", coursework: "Deep Learning, Applied Statistics, Linear Algebra, Foundational Principles of Machine Learning, Information Theory, Game Theory and History of AI, Quantum Computer Science, Natural Language Processing, Optimization" },
+      { years: "2023 - 2025", text: "Double Bachelor's Degree in Mathematics and Computer Science, University of Paris-Saclay - 17.16/20", coursework: "Theoretical Computer Science, Formal Methods, Advanced Functional Programming, Lambda Calculus (ENS Paris-Saclay), Operating Systems and Logic, Advanced Programming (Rust, ENS Paris-Saclay), Linear Optimization" },
+      { years: "2021 - 2023", text: "Preparatory Classes in Mathematics and Computer Science, Higher School of Computer Science of Algiers - 16.66/20", coursework: "Mathematics, Computer Science and Engineering Sciences" },
+      { years: "2021", text: "Baccalaureate of Mathematics, Cherif Debbih High School - 18.3/20" }
+    ],
+    awards: [
+      "Sophie Germain Excellence Scholarship, 2026/2027, Jacques-Hadamard Foundation",
+      "MixtAI Excellence Scholarship, 2025/2026, DataIA Institute",
+      "Qualified for the National Mathematics Olympiads, 2021",
+      "Student Ambassador, Department of Student Life, Faculty of Medicine, University of Paris-Saclay",
+      "Valedictorian of the second and third years of the Bachelor's degree, and of the first year of the Master's degree in mathematics-related subjects, University of Paris-Saclay",
+      "2nd place in the preparatory classes at the Higher School of Computer Science of Algiers"
+    ],
+    skills: [
+      { label: "Mathematics", text: "Convex & non-convex optimization, linear algebra, calculus, representation theory, stochastic calculus, statistical learning theory, information theory, measure theory, probability, game theory, discrete mathematics, advanced logic and calculation models" },
+      { label: "Machine Learning", text: "Deep learning, scientific ML, transformers, growing neural networks, geometric deep learning, diffusion models, neural architecture search" },
+      { label: "Programming", text: "Python, CUDA/GPU computing, Rust, C, MATLAB, SQL, OCaml, Java, x86 Assembly" },
+      { label: "Libraries & Tools", text: "PyTorch, PyTorch Geometric, Scikit-learn, SciPy, NumPy, Pandas, e3nn, MySQL, Apache Spark" },
+      { label: "Soft Skills", text: "Rigorous, curious and self-motivated" },
+      { label: "Languages", text: "English (C1), French (C2), Tamazight (native), Arabic (C2), Spanish (basic notions)" }
+    ],
+    supervisedBy: "Supervised by",
+    backLink: "← Back to profile",
+    noImages: "No images yet for this project.",
+    projectNotFound: "Project not found.",
+    footer: "© 2026 Oualid Chabane",
+    linkLabels: { Paper: "Paper" }
+  },
+
+  fr: {
+    langName: "Français",
+    tagline: "Étudiant en master, Mathématiques, Vision et Apprentissage (MVA), ENS Paris-Saclay - Apprentissage automatique et calcul scientifique",
+    honorLine: "Bourse d'excellence Sophie Germain, Fondation Jacques-Hadamard (2026-2027)",
+    contactEmail: "E-mail",
+    contactInstitutionalEmail: "E-mail institutionnel",
+    contactGitHub: "GitHub",
+    contactLinkedIn: "LinkedIn",
+    contactDob: "Date de naissance",
+    dob: "2 janvier 2004",
+    contactLocation: "Localisation",
+    location: "France",
+    lastUpdated: "Dernière mise à jour",
+    lastUpdatedValue: "20 septembre 2026, 23h26 CEST",
+    researchAt: "Stage de recherche au",
+    courseworkLabel: "Cours",
+    moreDetails: "En savoir plus",
+    navAbout: "À propos",
+    navEducation: "Formation",
+    navSkills: "Compétences",
+    navResearch: "Expérience de recherche",
+    navPublications: "Publications",
+    publications: [
+      "O. Chabane, L. Sun, S. Chevallier, J. Peter, J.-L. Hantrais-Gervois. Manuscrit en préparation, basé sur le défi d'apprentissage automatique décrit ci-dessus."
+    ],
+    navProjects: "Projets",
+    navAwards: "Distinctions et engagements",
+    about: "Je suis étudiant en master Mathématiques, Vision et Apprentissage (MVA) à l'École Normale Supérieure Paris-Saclay, avec une double licence en mathématiques et informatique et une Magistère en informatique à l'Université Paris-Saclay. Mes travaux portent sur l'apprentissage scientifique, l'apprentissage profond géométrique et équivariant, et la vérification formelle de programmes, à travers des stages de recherche au LISN et au Laboratoire Méthodes Formelles. J'encadre également des élèves pour les Olympiades africaines et internationales d'IA.",
+    education: [
+      { years: "2026 - 2027", text: "Master MVA (Mathématiques, Vision et Apprentissage), École Normale Supérieure Paris-Saclay", coursework: "(en construction) Transport optimal pour l'apprentissage automatique, Optimisation convexe et applications, Traitement de la géométrie et apprentissage profond géométrique, Apprentissage par renforcement, Apprentissage pour les séries temporelles" },
+      { years: "2025 - 2026", text: "Master en Intelligence Artificielle et Magistère en Informatique, Université Paris-Saclay - 16,5/20 (18,34/20 en mathématiques)", coursework: "Apprentissage profond, Statistiques appliquées, Algèbre linéaire, Principes fondamentaux de l'apprentissage automatique, Théorie de l'information, Théorie des jeux et histoire de l'IA, Informatique quantique, Traitement automatique du langage naturel, Optimisation" },
+      { years: "2023 - 2025", text: "Double licence en Mathématiques et Informatique, Université Paris-Saclay - 17,16/20", coursework: "Informatique théorique, Méthodes formelles, Programmation fonctionnelle avancée, Lambda-calcul (ENS Paris-Saclay), Systèmes d'exploitation et logique, Programmation avancée (Rust, ENS Paris-Saclay), Optimisation linéaire" },
+      { years: "2021 - 2023", text: "Classes préparatoires en Mathématiques et Informatique, École Supérieure d'Informatique d'Alger - 16,66/20", coursework: "Mathématiques, Informatique et Sciences de l'ingénieur" },
+      { years: "2021", text: "Baccalauréat en Mathématiques, Lycée Cherif Debbih - 18,3/20" }
+    ],
+    awards: [
+      "Bourse d'excellence Sophie Germain, 2026/2027, Fondation Jacques-Hadamard",
+      "Bourse d'excellence MixtAI, 2025/2026, Institut DataIA",
+      "Qualifié aux Olympiades nationales de mathématiques, 2021",
+      "Ambassadeur étudiant, Département de la vie étudiante, Faculté de médecine, Université Paris-Saclay",
+      "Major de promotion des deuxième et troisième années de licence, et de la première année de master, dans les matières liées aux mathématiques, Université Paris-Saclay",
+      "2e place, en classes préparatoires à l'École Supérieure d'Informatique d'Alger"
+    ],
+    skills: [
+      { label: "Mathématiques", text: "Optimisation convexe et non convexe, algèbre linéaire, calcul différentiel et intégral, théorie des représentations, calcul stochastique, théorie statistique de l'apprentissage, théorie de l'information, théorie de la mesure, probabilités, théorie des jeux, mathématiques discrètes, logique avancée et modèles de calcul" },
+      { label: "Apprentissage automatique", text: "Apprentissage profond, ML scientifique, transformers, réseaux de neurones à croissance, apprentissage profond géométrique, modèles de diffusion, recherche d'architecture neuronale" },
+      { label: "Programmation", text: "Python, calcul CUDA/GPU, Rust, C, MATLAB, SQL, OCaml, Java, assembleur x86" },
+      { label: "Bibliothèques et outils", text: "PyTorch, PyTorch Geometric, Scikit-learn, SciPy, NumPy, Pandas, e3nn, MySQL, Apache Spark" },
+      { label: "Savoir-être", text: "Rigoureux, curieux et autonome" },
+      { label: "Langues", text: "Anglais (C1), français (C2), tamazight (langue maternelle), arabe (C2), espagnol (notions de base)" }
+    ],
+    supervisedBy: "Encadré par",
+    backLink: "← Retour au profil",
+    noImages: "Pas encore d'images pour ce projet.",
+    projectNotFound: "Projet introuvable.",
+    footer: "© 2026 Oualid Chabane",
+    linkLabels: { Paper: "Article" }
+  },
+
+  kab: {
+    langName: "ⵜⴰⵇⴱⴰⵢⵍⵉⵜ",
+    tagline: "ⴰⵏⵍⵎⴰⴷ ⵏ Master (MVA), ENS Paris-Saclay — ⴰⵍⵎⵎⵓⴷ ⵏ ⵜⵎⴰⵛⵉⵏⵉⵏ ⴰⴽⴽⴷ ⵓⵃⵙⴰⴱ ⵓⵙⵙⵏⴰⵏ",
+    honorLine: "Bourse n uɛlay Sophie Germain, sɣur Tabaḍnit Jacques-Hadamard (2026-2027)",
+    contactEmail: "ⵜⵉⵎⴻⵍⵢⴰⵡⵜ",
+    contactInstitutionalEmail: "ⵜⵉⵎⴻⵍⵢⴰⵡⵜ ⵜⴰⵙⴷⴰⵡⴰⵏⵜ",
+    contactGitHub: "GitHub",
+    contactLinkedIn: "LinkedIn",
+    contactDob: "ⴰⵣⴻⵎⵣ ⵏ ⵜⵍⴰⵍⵉⵜ",
+    dob: "2 ⵢⴻⵏⵏⴰⵢⴻⵔ 2004",
+    contactLocation: "ⴰⴷⵖⴰⵔ",
+    location: "Fransa",
+    lastUpdated: "ⴰⵍⵓⴳⴻⵏ ⴰⵏⴻⴳⴳⴰⵔⵓ",
+    lastUpdatedValue: "20 Ctember 2026, 23:26 CEST",
+    researchAt: "ⵜⵍⴻⵎⵎⵉⵙⵜ ⵏ ⵓⵏⴰⴷⵉ ɣⴻⵔ",
+    courseworkLabel: "ⵜⵉⵖⵓⵔⵉⵡⵉⵏ",
+    moreDetails: "ⵓⴳⴰⵔ ⵏ ⵜⴻⵍɣⵓⵜ",
+    navAbout: "ⵖⴼ-ⵉ",
+    navEducation: "ⴰⵙⵍⵎⴷ",
+    navSkills: "ⵜⵉⵣⵎⴰⵔ",
+    navResearch: "ⵜⴰⵔⵎⵉⵜ ⵏ ⵓⵏⴰⴷⵉ",
+    navPublications: "ⵜⵉⵔⴰ (Publications)",
+    publications: [
+      "O. Chabane, L. Sun, S. Chevallier, J. Peter, J.-L. Hantrais-Gervois. Adlis (manuscript) deg uheggi, yebna ɣef usenfar n almmud ussnan n tmacinin yettwabeggnen sennig."
+    ],
+    navProjects: "ⵉⵙⴻⵏⴼⴰⵔⴻⵏ",
+    navAwards: "Prix akked Uqadeṛ",
+    about: "ⴷ ⴰⵏⵍⵎⴰⴷ ⵏ Master deg Mathématiques, Vision d Almad (MVA) ɣer École Normale Supérieure Paris-Saclay. ⵣⵔⵉⵖ ⵣⵉⴽ ⴳ ⵛⵛⴰⵔⴰ ⵏ ⵜⵓⵙⵏⴰⴽⵜ ⴰⴽⴽⴷ ⵓⵙⵙⵏⴰⵏ ⵓⵃⵙⴰⴱ, ⴰⴽⴽⴷ Magistère deg ⵓⵙⵙⵏⴰⵏ ⵓⵃⵙⴰⴱ ɣer Tasdawit n Paris-Saclay. ⴰⵅⴷⴰⵎ-ⵉⵏⵓ ⵢⴻⵜⵜⴰⵡⵉ ⴰⵍⵎⵎⵓⴷ ⵓⵙⵙⵏⴰⵏ ⵏ ⵜⵎⴰⵛⵉⵏⵉⵏ, deep learning ⵓⴷⵎⴰⵡⴰⵏ, ⴰⴽⴽⴷ ⴰⵙⴻⵍⵇⴻⴷ ⵓⵏⵚⵉⴱ ⵏ ⵢⵉⴱⵔⴰⵎⴻⵏ, ⵙⴳⵔ ⵜⵍⴻⵎⵎⵉⵙⵜ ⵏ ⵓⵏⴰⴷⵉ ɣer LISN ⴰⴽⴽⴷ Laboratoire Méthodes Formelles. ⵙⵙⴻⵍⵎⴰⴷⴻⵖ ⴰⵖ ⵉⵏⴻⵍⵎⴰⴷⴻⵏ ⵉ Olympiades n IA n Tefriqt d umaḍal.",
+    education: [
+      { years: "2026 - 2027", text: "Master MVA (Mathématiques, Vision d Almad), École Normale Supérieure Paris-Saclay", coursework: "(deg lqaɛa) Optimal Transport for Machine Learning, Convex Optimization and Applications, Geometry Processing and Geometric Deep Learning, Reinforcement Learning, Learning for Time Series" },
+      { years: "2025 - 2026", text: "Master deg Ussnan n Talɣut (IA) akked Magistère deg Ussnan Aḥsaben, Tasdawit n Paris-Saclay - 16.5/20 (18.34/20 deg tusnakt)", coursework: "Deep Learning, Tisertiyin Ittwasnasen, Talɣejdit Tazerarant, Loṣul n Uslaḍ n Umassan, Tasertit n Telɣut, Tasertit n Uraren d Umazray n IA, Ussnan Aḥsaben Aquantic, Aselket n Tutlayt Tanmettit, Aslugen (Optimization)" },
+      { years: "2023 - 2025", text: "Licence sin ikwal deg Tusnakt akked Ussnan Aḥsaben, Tasdawit n Paris-Saclay - 17.16/20", coursework: "Ussnan Aḥsaben Anamek, Tarrayin Tunṣibin, Ahegga Amahil Aẓayan, Lambda-calcul (ENS Paris-Saclay), Anagraw n Uxeddim d Talɣejdit, Ahegga Amahil Aẓayan (Rust, ENS Paris-Saclay), Aslugen Azerarant" },
+      { years: "2021 - 2023", text: "Tiɣuriwin n uheggi deg Tusnakt akked Ussnan Aḥsaben, Taɣuri Tunnigt n Ussnan Aḥsaben n Dzayer - 16.66/20", coursework: "Tusnakt, Ussnan Aḥsaben d Tussniwin n Uhendes" },
+      { years: "2021", text: "Bakaloriya deg Tusnakt, Taɣuri Cherif Debbih - 18.3/20" }
+    ],
+    awards: [
+      "Bourse n uɛlay Sophie Germain, 2026/2027, Tabaḍnit Jacques-Hadamard",
+      "Bourse n uɛlay MixtAI, 2025/2026, Usinag DataIA",
+      "Yewwec ɣer Olympiades Iɣelnawen n Tusnakt, 2021",
+      "Amazan n Inelmaden, Taxxamt n Tudert Tanelmadant, Takulijt n Tejjut, Tasdawit n Paris-Saclay",
+      "Amezwaru deg tissegnitin wis-sin akked wis-krad n Licence, akked tasegnit tamezwarut n Master, deg tɣawsiwin yeqqnen ɣer Tusnakt, Tasdawit n Paris-Saclay",
+      "Amḍiq wis-sin, deg tqecwalin n uheggi n Taɣuri Tunnigt n Ussnan Aḥsaben n Dzayer"
+    ],
+    skills: [
+      { label: "Tusnakt", text: "Aswizzel udmawan d wudmawan ur nudmawan, tafelsezt tazerarant, aḥsab (calculus), tasertit n uskan, aḥsab asertik (stochastic), tasertit tanadawit n uselmed, tasertit n telɣut, tasertit n usektem, ass n tegnit, tasertit n uraren, tusnakt tabeṭṭayt (discrete), tametka tanmiṛant d yimudal n uḥsab" },
+      { label: "Almmud n Tmacinin", text: "Deep learning, ML ussnan, transformers, iẓran imassaniyen yettnernin (growing neural networks), deep learning udmawan, imudal n usemmid, anadi ɣef tuffra tazerarant" },
+      { label: "Ahegga (Programmation)", text: "Python, aḥsab CUDA/GPU, Rust, C, MATLAB, SQL, OCaml, Java, Assembly x86" },
+      { label: "Tibbura d Ifecka", text: "PyTorch, PyTorch Geometric, Scikit-learn, SciPy, NumPy, Pandas, e3nn, MySQL, Apache Spark" },
+      { label: "Tizmar Tinmettiyin", text: "Ameɣtu, ifeṛṛeḥ-it usnad, yettwadadan s yiman-is" },
+      { label: "Tutlayin", text: "Taglizit (C1), Tafransist (C2), Tamaziɣt (tayemmat), Taɛrabt (C2), Taspenyulit (assagen n tazwara)" }
+    ],
+    supervisedBy: "Ittwasenced sɣur",
+    backLink: "← Uɣal ɣer umaɣnu",
+    noImages: "Ulac tugniwin akka tura i uselfaru-ya.",
+    projectNotFound: "Asenfar ulac-it.",
+    footer: "© 2026 Oualid Chabane",
+    linkLabels: { Paper: "Tazrawt" }
+  }
+};

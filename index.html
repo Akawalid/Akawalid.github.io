@@ -6,22 +6,45 @@
 <title>Oualid Chabane</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="site-header">
-  <div class="header-flex">
-    <canvas class="signal-portrait" id="signal-canvas" role="img" aria-label="Portrait of Oualid Chabane, drawn live by rotating Fourier epicycles tracing the outline"></canvas>
+  <div class="top-bar">
+    <p class="last-updated"><span data-i18n="lastUpdated"></span>: <span data-i18n="lastUpdatedValue"></span></p>
+    <div class="lang-switch">
+      <button type="button" data-lang="en" aria-label="English">
+        <svg viewBox="0 0 60 30" width="20" height="10"><rect width="60" height="30" fill="#00247d"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#cf142b" stroke-width="2"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#cf142b" stroke-width="6"/></svg>
+        <span>English</span>
+      </button>
+      <button type="button" data-lang="fr" aria-label="Français">
+        <svg viewBox="0 0 3 2" width="20" height="13"><rect width="1" height="2" x="0" fill="#0055A4"/><rect width="1" height="2" x="1" fill="#fff"/><rect width="1" height="2" x="2" fill="#EF4135"/></svg>
+        <span>Français</span>
+      </button>
+      <button type="button" data-lang="kab" aria-label="Taqbaylit">
+        <svg viewBox="0 0 90 60" width="20" height="13"><rect width="90" height="20" y="0" fill="#1FB5E0"/><rect width="90" height="20" y="20" fill="#1CA64B"/><rect width="90" height="20" y="40" fill="#FCD116"/><text x="45" y="43" font-size="32" text-anchor="middle" fill="#D21F3C" font-family="'Noto Sans Tifinagh', sans-serif">ⵣ</text></svg>
+        <span>Taqbaylit</span>
+      </button>
+    </div>
+  </div>
+  <div class="header-grid">
     <div class="header-text">
-      <h1>Oualid Chabane</h1>
-      <p class="tagline">Master's student, Mathematics, Vision and Learning (MVA), ENS Paris-Saclay &mdash; Machine Learning &amp; Scientific Computing</p>
-      <ul class="contact-links">
-        <li><a href="mailto:chabaneoualidfr@gmail.com">Email</a></li>
-        <li><a href="https://github.com/Akawalid" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://linkedin.com/in/oualid-chabane-29a50224a" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
+      <h1 class="site-name">Oualid Chabane</h1>
+      <p class="tagline" data-i18n="tagline"></p>
+      <p class="honor-line" data-i18n="honorLine"></p>
+      <div class="contact-block">
+        <p><strong data-i18n="contactEmail"></strong>: chabaneoualidfr[at]gmail.com</p>
+        <p><strong data-i18n="contactInstitutionalEmail"></strong>: oualid.chabane[at]ens-paris-saclay.fr</p>
+        <p><strong data-i18n="contactGitHub"></strong>: <a href="https://github.com/Akawalid" target="_blank" rel="noopener">github.com/Akawalid</a></p>
+        <p><strong data-i18n="contactLinkedIn"></strong>: <a href="https://linkedin.com/in/oualid-chabane-29a50224a" target="_blank" rel="noopener">linkedin.com/in/oualid-chabane-29a50224a</a></p>
+        <p><strong data-i18n="contactDob"></strong>: <span data-i18n="dob"></span></p>
+        <p><strong data-i18n="contactLocation"></strong>: <span data-i18n="location"></span></p>
+      </div>
+    </div>
+    <div class="header-portrait">
+      <canvas class="signal-portrait" id="signal-canvas" role="img" aria-label="Portrait of Oualid Chabane, drawn live by rotating Fourier epicycles tracing the outline"></canvas>
     </div>
   </div>
 </header>
@@ -29,41 +52,47 @@
 <main>
 
   <section id="about">
-    <h2>About</h2>
-    <p>I am a Master's student in Mathematics, Vision and Learning (MVA) at École Normale Supérieure Paris-Saclay, with a background in a Double Bachelor's Degree in Mathematics and Computer Science and a Magistère in Computer Science at the University of Paris-Saclay. My work spans scientific machine learning, geometric and equivariant deep learning, and formal program verification, through research internships at LISN and the Laboratory of Formal Methods. I also coach students for the African and International Olympiads in AI.</p>
+    <p data-i18n="about"></p>
   </section>
 
   <section id="education">
-    <h2>Education</h2>
-    <ul class="education-list">
-      <li><strong>2026 - 2027</strong> &mdash; MVA Master's (Mathematics, Vision and Learning), École Normale Supérieure Paris-Saclay</li>
-      <li><strong>2025 - 2026</strong> &mdash; Master's in Artificial Intelligence and Magistère in Computer Science, University of Paris-Saclay &mdash; 16.5/20 (18.34/20 in mathematics)</li>
-      <li><strong>2024 - 2025</strong> &mdash; Double Bachelor's Degree in Mathematics and Computer Science, University of Paris-Saclay &mdash; 17.16/20</li>
-      <li><strong>2021 - 2023</strong> &mdash; Preparatory Classes in Mathematics and Computer Science, Higher School of Computer Science of Algiers &mdash; 16.66/20</li>
-    </ul>
+    <h2 data-i18n="navEducation"></h2>
+    <ul class="education-list" id="education-list"></ul>
   </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li><strong>Mathematics</strong> &mdash; Convex &amp; non-convex optimization, linear algebra, representation theory, statistical learning theory, information theory, measure theory, probability, game theory</li>
-      <li><strong>Machine Learning</strong> &mdash; Deep learning, scientific ML, transformers, growing models, geometric deep learning, diffusion models, neural architecture search</li>
-      <li><strong>Programming</strong> &mdash; Python, CUDA/GPU computing, Rust, C, MATLAB, SQL, OCaml, Java, x86 Assembly</li>
-      <li><strong>Libraries &amp; Tools</strong> &mdash; PyTorch, Scikit-learn, SciPy, NumPy, Pandas, e3nn, MySQL, Apache Spark</li>
-    </ul>
+  <section id="research">
+    <h2 data-i18n="navResearch"></h2>
+    <ul class="research-list" id="research-list"></ul>
+  </section>
+
+  <section id="publications">
+    <h2 data-i18n="navPublications"></h2>
+    <ul class="awards-list" id="publications-list"></ul>
   </section>
 
   <section id="projects">
-    <h2>Projects &amp; Research</h2>
+    <h2 data-i18n="navProjects"></h2>
     <ul class="project-list" id="project-list"></ul>
+  </section>
+
+  <section id="awards">
+    <h2 data-i18n="navAwards"></h2>
+    <ul class="awards-list" id="awards-list"></ul>
+  </section>
+
+  <section id="skills">
+    <h2 data-i18n="navSkills"></h2>
+    <ul class="skills-list" id="skills-list"></ul>
   </section>
 
 </main>
 
 <footer>
-  <p>&copy; 2026 Oualid Chabane</p>
+  <p data-i18n="footer"></p>
 </footer>
 
+<script src="i18n.js"></script>
+<script src="lang.js"></script>
 <script src="projects.js"></script>
 <script src="main.js"></script>
 <script src="epicycles.js"></script>
