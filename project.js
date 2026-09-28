@@ -87,17 +87,18 @@ function renderProject() {
   }
 
   if (project.links && project.links.length > 0) {
-    var linksDiv = document.createElement("div");
-    linksDiv.className = "project-links";
-    project.links.forEach(function (link) {
+    var linksP = document.createElement("p");
+    linksP.className = "project-links";
+    project.links.forEach(function (link, index) {
+      if (index > 0) linksP.appendChild(document.createTextNode(" · "));
       var a = document.createElement("a");
       a.href = link.url;
       a.target = "_blank";
       a.rel = "noopener";
       a.textContent = dict.linkLabels[link.label] || link.label;
-      linksDiv.appendChild(a);
+      linksP.appendChild(a);
     });
-    container.appendChild(linksDiv);
+    container.appendChild(linksP);
   }
 
   if (project.images && project.images.length > 0) {

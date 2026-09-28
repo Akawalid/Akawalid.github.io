@@ -62,6 +62,18 @@
           li.appendChild(bodyP);
         }
 
+        if (entry.moreCoursework) {
+          var details = document.createElement("details");
+          details.className = "coursework-more";
+          var summary = document.createElement("summary");
+          summary.textContent = dict.moreDetails;
+          details.appendChild(summary);
+          var moreP = document.createElement("p");
+          moreP.textContent = entry.moreCoursework;
+          details.appendChild(moreP);
+          li.appendChild(details);
+        }
+
         return li;
       });
     }

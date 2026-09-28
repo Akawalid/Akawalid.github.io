@@ -4,6 +4,7 @@
   --bg: #ffffff;
   --border: #dddddd;
   --accent: #7a2e12;
+  --bg-art-opacity: 0.9;
 }
 
 * {
@@ -20,6 +21,17 @@ body {
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
+}
+
+/* paper-cut waves, pinned behind the page; fade them with --bg-art-opacity */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url("images/paper-waves.svg") center bottom / cover no-repeat;
+  opacity: var(--bg-art-opacity);
+  pointer-events: none;
 }
 
 html.lang-kab body {
@@ -116,6 +128,14 @@ footer {
   justify-content: center;
 }
 
+.olive-tree {
+  display: block;
+  width: 250px;
+  max-width: 70%;
+  height: auto;
+  margin: -12px auto 0;
+}
+
 .site-name {
   margin: 0 0 16px;
   font-size: 4rem;
@@ -148,6 +168,11 @@ footer {
     width: 260px;
     margin-bottom: 8px;
   }
+
+  .olive-tree {
+    width: 190px;
+    margin-top: 0;
+  }
 }
 
 .tagline {
@@ -157,19 +182,10 @@ footer {
   font-size: 1.2rem;
 }
 
-.honor-line {
-  margin: 0 0 14px;
-  color: var(--text);
-  font-style: italic;
-  font-size: 1rem;
-}
-
 .contact-block {
+  margin: 0;
   color: var(--text);
-}
-
-.contact-block p {
-  margin: 0 0 4px;
+  line-height: 1.7;
 }
 
 .contact-block strong {
@@ -266,6 +282,30 @@ h2 {
   padding-left: 28px;
 }
 
+.coursework-more {
+  padding-left: 28px;
+  margin-top: 4px;
+}
+
+.coursework-more summary {
+  list-style: none;
+  display: inline;
+  cursor: pointer;
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.coursework-more summary::-webkit-details-marker,
+.coursework-more summary::marker {
+  display: none;
+  content: "";
+}
+
+.coursework-more p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
 .research-list a,
 .project-list a {
   color: var(--accent);
@@ -308,8 +348,6 @@ footer {
 }
 
 .project-links {
-  display: flex;
-  gap: 16px;
   margin: 16px 0;
 }
 
