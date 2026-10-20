@@ -1,6 +1,8 @@
 // Project lists: the selected work on the home page, and the full research
 // and project lists on their own pages. Every title links to the entry's page.
 
+function pick(field) { return window.siteLang.pick(field); }
+
 function projectHref(project) {
   return "project.html?id=" + encodeURIComponent(project.slug);
 }
@@ -15,7 +17,7 @@ function tagList(project, dict) {
     badge.className = "demo-tag";
     var demoLink = document.createElement("a");
     demoLink.href = projectHref(project) + "#demo";
-    demoLink.textContent = "▶ " + (dict.demoBadge || window.i18n.fr.demoBadge);
+    demoLink.textContent = "▶ " + (dict.demoBadge || window.i18n[window.siteLang.fallback()].demoBadge);
     badge.appendChild(demoLink);
     tags.appendChild(badge);
   }
@@ -50,7 +52,7 @@ function renderEntries(listId, type) {
   var dict = window.siteLang.t();
   list.innerHTML = "";
   window.projects.filter(function (p) { return p.type === type; }).forEach(function (project) {
-    var e = window.siteLang.makeEntry(project.period[lang]);
+    var e = window.siteLang.makeEntry(pick(project.period));
 
     // a preview image under the date, for entries that have a telling visual
     if (project.preview) e.li.querySelector(".entry-date").appendChild(previewLink(project, "entry-thumb"));
@@ -58,11 +60,11 @@ function renderEntries(listId, type) {
     var titleP = window.siteLang.addLine(e.main, "entry-title", "");
     var link = document.createElement("a");
     link.href = projectHref(project);
-    link.textContent = project.title[lang];
+    link.textContent = pick(project.title);
     titleP.appendChild(link);
 
-    if (project.lab) window.siteLang.addLine(e.main, "entry-sub", project.lab[lang]);
-    window.siteLang.addLine(e.main, "entry-text", project.description[lang].replace(/\n\n/g, " "));
+    if (project.lab) window.siteLang.addLine(e.main, "entry-sub", pick(project.lab));
+    window.siteLang.addLine(e.main, "entry-text", pick(project.description).replace(/\n\n/g, " "));
 
     var tags = tagList(project, dict);
     if (tags) e.main.appendChild(tags);
@@ -87,18 +89,18 @@ function renderFeatured() {
 
     var main = document.createElement("div");
     main.className = "feature-main";
-    var meta = project.period[lang].replace(/ - /g, "–") + (project.lab ? " · " + project.lab[lang] : "");
+    var meta = pick(project.period).replace(/ - /g, "–") + (project.lab ? " · " + pick(project.lab) : "");
     window.siteLang.addLine(main, "feature-meta", meta);
 
     var title = document.createElement("h3");
     title.className = "feature-title";
     var link = document.createElement("a");
     link.href = projectHref(project);
-    link.textContent = project.title[lang];
+    link.textContent = pick(project.title);
     title.appendChild(link);
     main.appendChild(title);
 
-    var pitch = (project.pitch && project.pitch[lang]) || project.summary[lang];
+    var pitch = (project.pitch && project.pitch[lang]) || pick(project.summary);
     window.siteLang.addLine(main, "feature-text", pitch);
 
     var tags = tagList(project, dict);

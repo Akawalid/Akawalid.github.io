@@ -6,7 +6,9 @@
 
 (function () {
   var STORAGE_KEY = "site-lang";
-  var SUPPORTED = ["en", "fr", "kab"];
+  var SUPPORTED = ["en", "fr", "ar", "kab"];
+  // what a language shows where a string or a write-up is not translated yet
+  var FALLBACK = { kab: "fr", ar: "en", fr: "en", en: "en" };
 
   function getLang() {
     try {
@@ -18,6 +20,15 @@
 
   function t() {
     return window.i18n[getLang()];
+  }
+
+  function fallback() { return FALLBACK[getLang()]; }
+
+  // the current language's version of a translated field ({ en, fr, ar, kab })
+  function pick(field) {
+    if (!field) return "";
+    var l = getLang();
+    return field[l] !== undefined ? field[l] : field[FALLBACK[l]] !== undefined ? field[FALLBACK[l]] : field.en;
   }
 
   function renderListInto(containerId, items, mapFn) {
@@ -52,11 +63,12 @@
   }
 
   // "Degree, Institution - 16.5/20 (...)" -> degree / "Institution · 16.5/20 (...)"
+  // (Arabic entries use the Arabic comma "، ")
   function splitEducation(text) {
     var grade = "";
     var m = text.match(/^(.*) - (\d[\d.,]*\/20.*)$/);
     if (m) { text = m[1]; grade = m[2]; }
-    var cut = text.lastIndexOf(", ");
+    var cut = Math.max(text.lastIndexOf(", "), text.lastIndexOf("، "));
     var degree = cut === -1 ? text : text.slice(0, cut);
     var place = cut === -1 ? "" : text.slice(cut + 2);
     return { degree: degree, place: [place, grade].filter(Boolean).join(" · ") };
@@ -65,13 +77,15 @@
   function applyStatic() {
     var dict = t();
 
-    document.documentElement.lang = getLang() === "kab" ? "kab" : getLang();
-    document.documentElement.classList.toggle("lang-kab", getLang() === "kab");
+    var lang = getLang(), backup = window.i18n[fallback()];
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.documentElement.classList.toggle("lang-kab", lang === "kab");
 
-    // strings not translated into Kabyle yet fall back to French
+    // strings not translated yet use the fallback language
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var key = el.getAttribute("data-i18n");
-      var value = dict[key] !== undefined ? dict[key] : window.i18n.fr[key];
+      var value = dict[key] !== undefined ? dict[key] : backup[key];
       if (value !== undefined) el.textContent = value;
     });
 
@@ -115,7 +129,7 @@
     }
 
     if (document.getElementById("experience-list")) {
-      renderListInto("experience-list", dict.experience || window.i18n.fr.experience, function (entry) {
+      renderListInto("experience-list", dict.experience || backup.experience, function (entry) {
         var e = makeEntry(entry.years);
         addLine(e.main, "entry-title", entry.title);
         addLine(e.main, "entry-sub", entry.place);
@@ -155,5 +169,5 @@
     window.dispatchEvent(new CustomEvent("langchange", { detail: { lang: getLang() } }));
   });
 
-  window.siteLang = { getLang: getLang, t: t, setLang: setLang, makeEntry: makeEntry, addLine: addLine };
+  window.siteLang = { getLang: getLang, t: t, fallback: fallback, pick: pick, setLang: setLang, makeEntry: makeEntry, addLine: addLine };
 })();

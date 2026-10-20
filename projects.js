@@ -5,29 +5,34 @@ window.projects = [
     title: {
       en: "Scientific Machine Learning Challenge on Codabench",
       fr: "Défi d'apprentissage automatique scientifique sur Codabench",
+      ar: "تحدّي تعلّم الآلة العلمي على Codabench",
       kab: "Asenfar n Almmud Ussnan n Tmacinin ɣef Codabench"
     },
-    period: { en: "May - Aug 2026", fr: "Mai - Août 2026", kab: "Mayyu - Ɣuct 2026" },
+    period: { en: "May - Aug 2026", fr: "Mai - Août 2026", ar: "مايو - أغسطس 2026", kab: "Mayyu - Ɣuct 2026" },
     tags: ["Python", "PyTorch", "CFD", "Codabench"],
     preview: "images/preview-onera-challenge.jpg",
     lab: {
       en: "LISN, University of Paris-Saclay",
       fr: "LISN, Université Paris-Saclay",
+      ar: "مخبر LISN، جامعة باري-ساكلاي",
       kab: "LISN, Tasdawit n Paris-Saclay"
     },
     supervisors: "Lisheng Sun, Sylvain Chevallier, Jacques Peter, Jean-Luc Hantrais-Gervois",
     pitch: {
       en: "Designed a scientific machine learning challenge for the 2027 DataCamp: from the flight conditions of an unseen RANS simulation, predict the air density at 260,774 points on the surface of ONERA's CRM aircraft, ranked by a KL-divergence metric that catches local bias.",
-      fr: "Conception d'un défi d'apprentissage automatique scientifique pour le DataCamp 2027 : à partir des conditions de vol d'une simulation RANS inédite, prédire la densité de l'air en 260 774 points de la surface de l'avion CRM de l'ONERA, avec un classement par divergence de Kullback-Leibler qui détecte les biais locaux."
+      fr: "Conception d'un défi d'apprentissage automatique scientifique pour le DataCamp 2027 : à partir des conditions de vol d'une simulation RANS inédite, prédire la densité de l'air en 260 774 points de la surface de l'avion CRM de l'ONERA, avec un classement par divergence de Kullback-Leibler qui détecte les biais locaux.",
+      ar: "صمّمتُ تحدّيًا في تعلّم الآلة العلمي لنسخة 2027 من DataCamp: انطلاقًا من ظروف الطيران لمحاكاة RANS لم يرها النموذج، يجب التنبؤ بكثافة الهواء في 260,774 نقطة على سطح طائرة CRM التابعة لـ ONERA، مع ترتيب المشاركين بمقياس تباعد كولباك-لايبلر الذي يكشف الانحيازات المحلية."
     },
     summary: {
       en: "Scientific machine learning challenge based on RANS CFD simulations, featured in DataCamp 2027.",
       fr: "Défi d'apprentissage automatique scientifique basé sur des simulations CFD RANS, présenté à DataCamp 2027.",
+      ar: "تحدٍّ في تعلّم الآلة العلمي مبني على محاكاة RANS لديناميكا الموائع الحسابية، يُعرض في DataCamp 2027.",
       kab: "Asenfar n almmud ussnan n tmacinin ɣef adigan n RANS CFD, ad yettwabeggen deg DataCamp 2027."
     },
     description: {
       en: "Supervised by Lisheng Sun, Sylvain Chevallier, Jacques Peter and Jean-Luc Hantrais-Gervois, designed a scientific machine learning challenge based on Reynolds-Averaged Navier-Stokes Computational Fluid Dynamics simulations. The challenge will be featured in the 2027 edition of DataCamp. Also worked on side projects involving Gromo, the tau team's package for growing neural networks.",
       fr: "Encadré par Lisheng Sun, Sylvain Chevallier, Jacques Peter et Jean-Luc Hantrais-Gervois, conception d'un défi d'apprentissage automatique scientifique basé sur des simulations Reynolds-Averaged Navier-Stokes de mécanique des fluides numérique. Le défi sera présenté lors de l'édition 2027 de DataCamp. A également travaillé sur des projets annexes autour de Gromo, le package de l'équipe tau pour la croissance de réseaux de neurones.",
+      ar: "بإشراف Lisheng Sun وSylvain Chevallier وJacques Peter وJean-Luc Hantrais-Gervois، صمّمتُ تحدّيًا في تعلّم الآلة العلمي مبنيًا على محاكاة ديناميكا الموائع الحسابية بمعادلات نافييه-ستوكس المتوسّطة على طريقة رينولدز (RANS). سيُعرض التحدّي في نسخة 2027 من DataCamp. كما عملتُ على مشاريع جانبية حول Gromo، حزمة فريق tau للشبكات العصبية المتنامية.",
       kab: "Ittwasenced sɣur Lisheng Sun, Sylvain Chevallier, Jacques Peter akked Jean-Luc Hantrais-Gervois, heggaɣ asenfar n almmud ussnan n tmacinin ɣef adigan n RANS CFD (Reynolds-Averaged Navier-Stokes). Asenfar-a ad yili deg DataCamp n 2027. Xedmeɣ daɣen ɣef isenfaren nniḍen s Gromo, apaket n tarbaɛt tau i tmernit n yiẓran imassaniyen."
     },
     details: {
@@ -72,29 +77,34 @@ window.projects = [
     title: {
       en: "Equivariant Neural Networks for Glassy Liquids",
       fr: "Réseaux de neurones équivariants pour les liquides vitreux",
+      ar: "الشبكات العصبية المتكافئة للسوائل الزجاجية",
       kab: "Iẓran Imassaniyen Iwdanen (Equivariant) i Waman Idusan (Glassy Liquids)"
     },
-    period: { en: "Jan - Apr 2026", fr: "Janv. - Avr. 2026", kab: "Yennayer - Yebrir 2026" },
+    period: { en: "Jan - Apr 2026", fr: "Janv. - Avr. 2026", ar: "يناير - أبريل 2026", kab: "Yennayer - Yebrir 2026" },
     tags: ["PyTorch Geometric", "e3nn", "DeepHyper", "SLURM"],
     preview: "images/preview-equivariant-gnn.jpg",
     lab: {
       en: "LISN, University of Paris-Saclay",
       fr: "LISN, Université Paris-Saclay",
+      ar: "مخبر LISN، جامعة باري-ساكلاي",
       kab: "LISN, Tasdawit n Paris-Saclay"
     },
     supervisors: "François Landes",
     pitch: {
       en: "Bayesian hyperparameter search with DeepHyper on SE(3)-equivariant graph networks that predict how particles move in glassy liquids — and a padded variant of the network that lets every layer use its own irreducible representations.",
-      fr: "Recherche bayésienne d'hyperparamètres avec DeepHyper sur des réseaux de graphes équivariants SE(3) qui prédisent le mouvement des particules dans les liquides vitreux — et une variante du réseau, avec padding, qui laisse chaque couche utiliser ses propres représentations irréductibles."
+      fr: "Recherche bayésienne d'hyperparamètres avec DeepHyper sur des réseaux de graphes équivariants SE(3) qui prédisent le mouvement des particules dans les liquides vitreux — et une variante du réseau, avec padding, qui laisse chaque couche utiliser ses propres représentations irréductibles.",
+      ar: "بحث بايزي عن المعاملات الفائقة باستخدام DeepHyper لشبكات بيانية متكافئة تحت SE(3) تتنبأ بحركة الجسيمات في السوائل الزجاجية — مع نسخة من الشبكة بالحشو (padding) تتيح لكل طبقة استخدام تمثيلاتها غير القابلة للاختزال الخاصة بها."
     },
     summary: {
       en: "Bayesian hyperparameter search on SE(3)-equivariant graph neural networks to predict dynamical propensity.",
       fr: "Recherche bayésienne d'hyperparamètres sur des réseaux de neurones de graphes équivariants SE(3) pour prédire la propension dynamique.",
+      ar: "بحث بايزي عن المعاملات الفائقة لشبكات عصبية بيانية متكافئة تحت SE(3) للتنبؤ بالنزعة الديناميكية.",
       kab: "Anadi bayesian n hyperparameters ɣef iẓran n ugraf udmawan SE(3) i usenqed n tɣara tanmegant."
     },
     description: {
       en: "Supervised by François Landes, performed a Bayesian hyperparameter search on SE(3)-equivariant graph neural networks using DeepHyper to predict dynamical propensity in glassy liquids, on the Kob-Andersen molecular dynamics dataset. The work involved tuning the spherical-harmonic degree, layer count and channel schedules, as well as extending the hyperparameter search space by digging into the model's representation theory.",
       fr: "Encadré par François Landes, réalisation d'une recherche bayésienne d'hyperparamètres sur des réseaux de neurones de graphes équivariants SE(3) avec DeepHyper, pour prédire la propension dynamique de liquides vitreux sur le jeu de données de dynamique moléculaire Kob-Andersen. Le travail a consisté à ajuster le degré des harmoniques sphériques, le nombre de couches et les canaux, ainsi qu'à étendre l'espace de recherche en s'appuyant sur la théorie des représentations du modèle.",
+      ar: "بإشراف François Landes، أجريتُ بحثًا بايزيًا عن المعاملات الفائقة لشبكات عصبية بيانية متكافئة تحت الزمرة SE(3) باستخدام DeepHyper، للتنبؤ بالنزعة الديناميكية في السوائل الزجاجية، على بيانات الديناميكا الجزيئية Kob-Andersen. شمل العمل ضبط درجة التوافقيات الكروية وعدد الطبقات وتوزيع القنوات، وتوسيع فضاء البحث بالتعمّق في نظرية التمثيلات التي يقوم عليها النموذج.",
       kab: "Ittwasenced sɣur François Landes, xedmeɣ anadi bayesian n hyperparameters ɣef iẓran n ugraf udmawan SE(3), s DeepHyper, i usenqed n tɣara tanmegant deg waman idusan, ɣef yisefka n Kob-Andersen. Axeddim-a yesɛa asswizzel n addad n spherical harmonics, amḍan n tissiliwin akked ubrid n izuran, akked usɣeṛɣer n umḍiq n unadi s ubḥeṛ deg tsertit n uskan n umudel."
     },
     details: {
@@ -148,29 +158,34 @@ window.projects = [
     title: {
       en: "Formal Verification of Rust Programs (Creusot)",
       fr: "Vérification formelle de programmes Rust (Creusot)",
+      ar: "التحقق الصوري من برامج Rust (Creusot)",
       kab: "Aselqed Unṣib n Isefka Rust (Creusot)"
     },
-    period: { en: "May - Jul 2025", fr: "Mai - Juil. 2025", kab: "Mayyu - Yulyu 2025" },
+    period: { en: "May - Jul 2025", fr: "Mai - Juil. 2025", ar: "مايو - يوليو 2025", kab: "Mayyu - Yulyu 2025" },
     tags: ["Rust", "Creusot", "Why3"],
     preview: "images/preview-rust-verification.jpg",
     lab: {
       en: "Laboratory of Formal Methods, Gif-sur-Yvette",
       fr: "Laboratoire Méthodes Formelles, Gif-sur-Yvette",
+      ar: "مخبر الطرق الصورية، جيف-سور-إيفيت",
       kab: "Laboratoire Méthodes Formelles, Gif-sur-Yvette"
     },
     supervisors: "Jean-Christophe Filliatre, Arnaud Golfouse, Paul Patault",
     pitch: {
       en: "Formal proof, with Creusot, of an in-place reversal of a raw-pointer linked list in Rust — the kind of code the borrow checker cannot reason about — by carrying the memory-separation argument through ghost ownership instead of separation logic.",
-      fr: "Preuve formelle, avec Creusot, d'une inversion en place d'une liste chaînée à pointeurs bruts en Rust — le genre de code sur lequel le borrow checker ne peut pas raisonner — en portant l'argument de séparation mémoire par une possession fantôme plutôt que par la logique de séparation."
+      fr: "Preuve formelle, avec Creusot, d'une inversion en place d'une liste chaînée à pointeurs bruts en Rust — le genre de code sur lequel le borrow checker ne peut pas raisonner — en portant l'argument de séparation mémoire par une possession fantôme plutôt que par la logique de séparation.",
+      ar: "برهان صوري، باستخدام Creusot، على صحة قلب قائمة مترابطة في مكانها بمؤشرات خام في Rust — وهو نوع من الشيفرة لا يستطيع مدقّق الاستعارة (borrow checker) الاستدلال عليه — عبر تمرير حجّة الفصل بين مناطق الذاكرة من خلال ملكية شبحية (ghost) بدل منطق الفصل."
     },
     summary: {
       en: "Formal verification of Rust programs using the Creusot tool.",
       fr: "Vérification formelle de programmes Rust à l'aide de l'outil Creusot.",
+      ar: "التحقق الصوري من برامج Rust باستخدام أداة Creusot.",
       kab: "Aselqed unṣib n isefka Rust s ufecku Creusot."
     },
     description: {
       en: "Supervised by Jean-Christophe Filliatre, Arnaud Golfouse and Paul Patault, formal verification of Rust programs with the Creusot tool.",
       fr: "Encadré par Jean-Christophe Filliatre, Arnaud Golfouse et Paul Patault, vérification formelle de programmes Rust avec l'outil Creusot.",
+      ar: "بإشراف Jean-Christophe Filliatre وArnaud Golfouse وPaul Patault، التحقق الصوري من برامج Rust باستخدام أداة Creusot.",
       kab: "Ittwasenced sɣur Jean-Christophe Filliatre, Arnaud Golfouse akked Paul Patault, aselqed unṣib n isefka Rust s ufecku Creusot."
     },
     details: {
@@ -246,24 +261,28 @@ window.projects = [
     title: {
       en: "Program Verification with Why3",
       fr: "Vérification de programmes avec Why3",
+      ar: "التحقق من البرامج باستخدام Why3",
       kab: "Aselqed n Isefka s Why3"
     },
-    period: { en: "Jan - May 2025", fr: "Janv. - Mai 2025", kab: "Yennayer - Mayyu 2025" },
+    period: { en: "Jan - May 2025", fr: "Janv. - Mai 2025", ar: "يناير - مايو 2025", kab: "Yennayer - Mayyu 2025" },
     tags: ["Why3"],
     lab: {
       en: "Laboratory of Formal Methods, Gif-sur-Yvette",
       fr: "Laboratoire Méthodes Formelles, Gif-sur-Yvette",
+      ar: "مخبر الطرق الصورية، جيف-سور-إيفيت",
       kab: "Laboratoire Méthodes Formelles, Gif-sur-Yvette"
     },
     supervisors: "Jean-Christophe Filliatre",
     summary: {
       en: "Formal program verification of a depth-first search algorithm using the Why3 language.",
       fr: "Vérification formelle d'un algorithme de parcours en profondeur à l'aide du langage Why3.",
+      ar: "التحقق الصوري من خوارزمية البحث بالعمق أولًا باستخدام لغة Why3.",
       kab: "Aselqed unṣib n ualgoritm n unadi s telqey (DFS) s tutlayt Why3."
     },
     description: {
       en: "Supervised by Jean-Christophe Filliatre, formal program verification using the Why3 language.",
       fr: "Encadré par Jean-Christophe Filliatre, vérification formelle de programmes à l'aide du langage Why3.",
+      ar: "بإشراف Jean-Christophe Filliatre، التحقق الصوري من البرامج باستخدام لغة Why3.",
       kab: "Ittwasenced sɣur Jean-Christophe Filliatre, aselqed unṣib n isefka s tutlayt Why3."
     },
     details: {
@@ -303,20 +322,23 @@ window.projects = [
     title: {
       en: "Denoising Diffusion Probabilistic Model",
       fr: "Modèle probabiliste de diffusion débruitante (DDPM)",
+      ar: "نموذج الانتشار الاحتمالي لإزالة الضجيج (DDPM)",
       kab: "Amudel Asemmid Yekksen Ameǧlaḍ (DDPM)"
     },
-    period: { en: "Apr - May 2026", fr: "Avr. - Mai 2026", kab: "Yebrir - Mayyu 2026" },
+    period: { en: "Apr - May 2026", fr: "Avr. - Mai 2026", ar: "أبريل - مايو 2026", kab: "Yebrir - Mayyu 2026" },
     tags: ["PyTorch", "U-Net", "MNIST"],
     demo: "diffusion",
     preview: "images/preview-diffusion-model.jpg",
     summary: {
       en: "Implementation of DDPM (Ho, Jain and Abbeel, 2020) using PyTorch.",
       fr: "Implémentation du DDPM (Ho, Jain et Abbeel, 2020) avec PyTorch.",
+      ar: "تنفيذ DDPM (Ho وJain وAbbeel، 2020) باستخدام PyTorch.",
       kab: "Ahegga n DDPM (Ho, Jain d Abbeel, 2020) s PyTorch."
     },
     description: {
       en: "Implemented the model described in Ho, Jain and Abbeel, \"Denoising Diffusion Probabilistic Models\", arXiv:2006.11239, 2020, using the PyTorch library.",
       fr: "Implémentation du modèle décrit dans Ho, Jain et Abbeel, « Denoising Diffusion Probabilistic Models », arXiv:2006.11239, 2020, à l'aide de la bibliothèque PyTorch.",
+      ar: "تنفيذ النموذج الموصوف في مقال Ho وJain وAbbeel، \"Denoising Diffusion Probabilistic Models\"، arXiv:2006.11239، 2020، باستخدام مكتبة PyTorch.",
       kab: "Heggaɣ amudel yettwabeggnen deg twaraqt n Ho, Jain d Abbeel, « Denoising Diffusion Probabilistic Models », arXiv:2006.11239, 2020, s tebbura n PyTorch."
     },
     details: {
@@ -359,19 +381,22 @@ window.projects = [
     title: {
       en: "Polylogarithmic Algorithm for the k-Server Problem",
       fr: "Algorithme polylogarithmique pour le problème des k-serveurs",
+      ar: "خوارزمية متعددة اللوغاريتمات لمسألة k-خادم",
       kab: "Algoritm Polylogaritmi i Wugur n k-iqeddacen"
     },
-    period: { en: "Jan - Feb 2026", fr: "Janv. - Févr. 2026", kab: "Yennayer - Fuṛar 2026" },
+    period: { en: "Jan - Feb 2026", fr: "Janv. - Févr. 2026", ar: "يناير - فبراير 2026", kab: "Yennayer - Fuṛar 2026" },
     tags: ["Python", "BBMN", "WFA"],
     demo: "kserver",
     summary: {
       en: "Approximation of a polylogarithmic-competitive online algorithm for the k-server problem.",
       fr: "Approximation d'un algorithme en ligne polylogarithmique-compétitif pour le problème des k-serveurs.",
+      ar: "تقريب لخوارزمية آنية ذات نسبة تنافسية متعددة اللوغاريتمات لمسألة k-خادم.",
       kab: "Aqerreb n walgoritm srid (online) polylogaritmi i wugur n k-iqeddacen."
     },
     description: {
       en: "Implemented an approximation of the algorithm described in Bansal, Buchbinder, Madry and Naor, \"A Polylogarithmic-Competitive Algorithm for the k-Server Problem\", arXiv:1110.1580, 2011, resolving the k-server problem in O(log^3 n log^2 k log log n) for any metric space on n points.",
       fr: "Implémentation d'une approximation de l'algorithme décrit dans Bansal, Buchbinder, Madry et Naor, « A Polylogarithmic-Competitive Algorithm for the k-Server Problem », arXiv:1110.1580, 2011, résolvant le problème des k-serveurs en O(log^3 n log^2 k log log n) pour tout espace métrique à n points.",
+      ar: "تنفيذ تقريب للخوارزمية الموصوفة في مقال Bansal وBuchbinder وMadry وNaor، \"A Polylogarithmic-Competitive Algorithm for the k-Server Problem\"، arXiv:1110.1580، 2011، التي تحلّ مسألة k-خادم بنسبة تنافسية \u2066O(log^3 n log^2 k log log n)\u2069 في أي فضاء متري من n نقطة.",
       kab: "Heggaɣ aqerreb n walgoritm yettwabeggnen deg twaraqt n Bansal, Buchbinder, Madry d Naor, « A Polylogarithmic-Competitive Algorithm for the k-Server Problem », arXiv:1110.1580, 2011, yefrayen ugur n k-iqeddacen deg O(log^3 n log^2 k log log n) i yal amḍiq ameṭri s n tenqiḍin."
     },
     details: {
@@ -408,18 +433,21 @@ window.projects = [
     title: {
       en: "Scientific Article Retrieval Challenge",
       fr: "Défi de recherche d'articles scientifiques",
+      ar: "تحدّي استرجاع المقالات العلمية",
       kab: "Asenfar n Unadi ɣef Yirtal Ussnanen"
     },
-    period: { en: "2025 - 2026", fr: "2025 - 2026", kab: "2025 - 2026" },
+    period: { en: "2025 - 2026", fr: "2025 - 2026", ar: "2025 - 2026", kab: "2025 - 2026" },
     tags: ["BGE", "GTE", "Granite R2", "BM25", "Optuna"],
     summary: {
       en: "Ranked 2nd on a document-ranking task, combining dense and sparse retrieval, NDCG@10 = 0.76.",
       fr: "2e place sur une tâche de classement de documents, combinant recherche dense et parcimonieuse, NDCG@10 = 0,76.",
+      ar: "المرتبة الثانية في مهمة ترتيب الوثائق، بالجمع بين الاسترجاع الكثيف والمتناثر، NDCG@10 = 0.76.",
       kab: "Amḍiq wis-sin deg umahil n usmizzel n yirtal, s tuddma n dense akked sparse retrieval, NDCG@10 = 0.76."
     },
     description: {
       en: "Ranked 2nd on a document-ranking task retrieving relevant papers from a 20,000-document corpus, combining dense retrieval (BGE-large, GTE-large, Granite R2) via Reciprocal Rank Fusion with BM25/TF-IDF sparse retrieval and a domain-relevance bonus, reaching NDCG@10 = 0.76.",
       fr: "Classé 2e sur une tâche de classement de documents consistant à retrouver les articles pertinents dans un corpus de 20 000 documents, combinant recherche dense (BGE-large, GTE-large, Granite R2) via Reciprocal Rank Fusion avec une recherche parcimonieuse BM25/TF-IDF et un bonus de pertinence thématique, atteignant NDCG@10 = 0,76.",
+      ar: "المرتبة الثانية في مهمة ترتيب وثائق لاسترجاع المقالات ذات الصلة من مجموعة تضم 20,000 وثيقة، بالجمع بين الاسترجاع الكثيف (BGE-large وGTE-large وGranite R2) عبر دمج الرتب التبادلي (Reciprocal Rank Fusion) والاسترجاع المتناثر BM25/TF-IDF ومكافأة الصلة بالمجال، مع بلوغ NDCG@10 = 0.76.",
       kab: "Amḍiq wis-sin deg umahil n usmizzel n yirtal, unadi ɣef yiwaraqen yeqḍen deg 20.000 n yirtal, s tuddma n dense retrieval (BGE-large, GTE-large, Granite R2) s Reciprocal Rank Fusion akked sparse retrieval BM25/TF-IDF, akked lḥerz n telɣa n taɣult, awḍeɣ ɣer NDCG@10 = 0.76."
     },
     details: {
@@ -456,20 +484,23 @@ window.projects = [
     title: {
       en: "Neural Architecture Search AutoML Challenge",
       fr: "Défi AutoML de recherche d'architecture neuronale",
+      ar: "تحدّي AutoML للبحث عن البنى العصبية",
       kab: "Asenfar AutoML n Unadi ɣef Tbenyi n Iẓran"
     },
-    period: { en: "Jul - Sep 2026", fr: "Juil. - Sept. 2026", kab: "Yulyu - Ctember 2026" },
+    period: { en: "Jul - Sep 2026", fr: "Juil. - Sept. 2026", ar: "يوليو - سبتمبر 2026", kab: "Yulyu - Ctember 2026" },
     tags: ["PyTorch", "Gromo", "SLURM", "Codabench"],
     demo: "growth",
     preview: "images/preview-nas-automl-challenge.jpg",
     summary: {
       en: "Reproduced and benchmarked a single-run network-growth architecture search method (Gromo) across five datasets.",
       fr: "Reproduction et évaluation d'une méthode de recherche d'architecture par croissance de réseau (Gromo) sur cinq jeux de données.",
+      ar: "إعادة إنتاج وتقييم طريقة للبحث عن البنى بتنمية الشبكة في تشغيل واحد (Gromo) على خمس مجموعات بيانات.",
       kab: "Ales n uxeddim akked usmizzel n tarrayt n tbenyi n uẓar (Gromo) ɣef xemsa n yisefka."
     },
     description: {
       en: "Reproduced and benchmarked the \"Demeter\" single-run network-growth architecture search method from an anonymous NeurIPS 2026 submission (\"Should I train or should I grow?\"), built on the Gromo package, across five benchmark datasets (MultNIST, CifarTile, Gutenberg, Chesseract, GeoClassing), closely matching the paper's reported accuracy and documenting inconsistencies in the paper and bugs in the accompanying code.",
       fr: "Reproduction et évaluation de la méthode de recherche d'architecture par croissance de réseau en une seule exécution « Demeter », issue d'une soumission anonyme à NeurIPS 2026 (« Should I train or should I grow? »), construite sur le package Gromo, sur cinq jeux de données de référence (MultNIST, CifarTile, Gutenberg, Chesseract, GeoClassing), avec une précision proche de celle rapportée dans l'article et la documentation d'incohérences dans l'article ainsi que de bugs dans le code associé.",
+      ar: "إعادة إنتاج وتقييم طريقة \"Demeter\" للبحث عن البنى بتنمية الشبكة في تشغيل واحد، المأخوذة من مقال مُقدَّم دون ذكر المؤلفين إلى NeurIPS 2026 (\"Should I train or should I grow?\") والمبنية على حزمة Gromo، على خمس مجموعات بيانات مرجعية (MultNIST وCifarTile وGutenberg وChesseract وGeoClassing)، مع دقة قريبة جدًا مما أعلنه المقال، وتوثيق تناقضات في المقال وأخطاء في الشيفرة المرافقة.",
       kab: "Ales n uxeddim akked usmizzel n tarrayt \"Demeter\" (anadi ɣef tbenyi n uẓar s tikkelt yiwet), i d-yekkan seg twaraqt tuffirt i NeurIPS 2026 (\"Should I train or should I grow?\"), yebnan ɣef upaket Gromo, ɣef xemsa n yisefka n uqiyas (MultNIST, CifarTile, Gutenberg, Chesseract, GeoClassing), s tɣara tuqrib i tin i d-yenna twaraqt, akked usekles n yir-tira deg twaraqt akked yir-tira deg tengalt."
     },
     details: {
@@ -507,18 +538,21 @@ window.projects = [
     title: {
       en: "Mini-Rust Compiler",
       fr: "Compilateur Mini-Rust",
+      ar: "مترجم Mini-Rust",
       kab: "Amsuddes Mini-Rust"
     },
-    period: { en: "Apr - Jun 2025", fr: "Avr. - Juin 2025", kab: "Yebrir - Yunyu 2025" },
+    period: { en: "Apr - Jun 2025", fr: "Avr. - Juin 2025", ar: "أبريل - يونيو 2025", kab: "Yebrir - Yunyu 2025" },
     tags: ["OCaml", "Menhir", "Rust"],
     summary: {
       en: "A mini-compiler for a subset of Rust with lifetime constraint generation and borrow checking.",
       fr: "Un mini-compilateur pour un sous-ensemble de Rust avec génération de contraintes de durée de vie et vérification d'emprunts.",
+      ar: "مترجم مصغّر لجزء من لغة Rust مع توليد قيود مدد الحياة والتحقق من الاستعارات.",
       kab: "Amsuddes amecṭuḥ i kra n Rust, s tarusi n lqecc n tuddert (lifetime) akked usenqed n usuter (borrow checking)."
     },
     description: {
       en: "Implemented a mini-compiler for a subset of Rust including lifetime constraint generation, borrow checking and memory access verification.",
       fr: "Implémentation d'un mini-compilateur pour un sous-ensemble de Rust incluant la génération de contraintes de durée de vie, la vérification d'emprunts et la vérification d'accès mémoire.",
+      ar: "تنفيذ مترجم مصغّر لجزء من لغة Rust يشمل توليد قيود مدد الحياة (lifetimes) والتحقق من الاستعارات (borrow checking) والتحقق من الوصول إلى الذاكرة.",
       kab: "Heggaɣ amsuddes amecṭuḥ i kra n Rust, s tarusi n lqecc n tuddert, usenqed n usuter (borrow checking) akked uselqed n unekcum ɣer twennaḍt (memory)."
     },
     details: {
@@ -552,20 +586,23 @@ window.projects = [
     title: {
       en: "Geographical Simulation",
       fr: "Simulation géographique",
+      ar: "محاكاة جغرافية",
       kab: "Aselkin Tamurt (Simulation Tageografit)"
     },
-    period: { en: "Apr - May 2024", fr: "Avr. - Mai 2024", kab: "Yebrir - Mayyu 2024" },
+    period: { en: "Apr - May 2024", fr: "Avr. - Mai 2024", ar: "أبريل - مايو 2024", kab: "Yebrir - Mayyu 2024" },
     tags: ["Processing", "GLSL"],
     demo: "catenary",
     preview: "images/preview-geo-simulation.jpg",
     summary: {
       en: "Simulation of Saint-Aubin geography using real physical laws and optimization methods.",
       fr: "Simulation de la géographie de Saint-Aubin à l'aide de lois physiques réelles et de méthodes d'optimisation.",
+      ar: "محاكاة جغرافيا سان-أوبان باستخدام قوانين فيزيائية حقيقية وطرق التحسين.",
       kab: "Aselkin n tmurt n Saint-Aubin s wulawen n tfizikt tidet akked tarrayin n uswizzel."
     },
     description: {
       en: "Simulation of Saint-Aubin geography using real physical laws on objects, combined with optimization methods.",
       fr: "Simulation de la géographie de Saint-Aubin appliquant des lois physiques réelles aux objets, combinée à des méthodes d'optimisation.",
+      ar: "محاكاة جغرافيا سان-أوبان (Saint-Aubin) بتطبيق قوانين فيزيائية حقيقية على الأجسام، مع طرق التحسين.",
       kab: "Aselkin n tmurt n Saint-Aubin, s usnas n wulawen n tfizikt tidet ɣef yifergan, myuddam akked tarrayin n uswizzel."
     },
     details: {
@@ -629,18 +666,21 @@ window.projects = [
     title: {
       en: "Part-of-Speech Tagging on Universal Dependencies",
       fr: "Étiquetage morpho-syntaxique sur Universal Dependencies",
+      ar: "وسم أقسام الكلام على Universal Dependencies",
       kab: "Asekyed n Yiwalen (POS Tagging) ɣef Universal Dependencies"
     },
-    period: { en: "Feb 2026", fr: "Févr. 2026", kab: "Fuṛar 2026" },
+    period: { en: "Feb 2026", fr: "Févr. 2026", ar: "فبراير 2026", kab: "Fuṛar 2026" },
     tags: ["Python", "scikit-learn", "PyTorch", "CoNLL-U"],
     summary: {
       en: "Part-of-speech tagging pipeline on the Universal Dependencies treebank, with a logistic-regression baseline.",
       fr: "Pipeline d'étiquetage morpho-syntaxique sur le treebank Universal Dependencies, avec une base de référence par régression logistique.",
+      ar: "سلسلة معالجة لوسم أقسام الكلام على بنك الأشجار Universal Dependencies، مع نموذج مرجعي بالانحدار اللوجستي.",
       kab: "Pipeline n usekyed n yiwalen ɣef treebank n Universal Dependencies, s uslaḍ n tazwara s regression logistique."
     },
     description: {
       en: "Built a part-of-speech tagging pipeline on the Universal Dependencies English-EWT treebank (CoNLL-U format), with a logistic-regression baseline (scikit-learn) and a preprocessing pipeline (vocabulary building, sentence encoding, padding) for a neural sequence tagger.",
       fr: "Construction d'un pipeline d'étiquetage morpho-syntaxique (POS tagging) sur le treebank Universal Dependencies English-EWT (format CoNLL-U), avec une base de référence par régression logistique (scikit-learn) et un pipeline de prétraitement (vocabulaire, encodage des phrases, padding) pour un étiqueteur neuronal séquentiel.",
+      ar: "بناء سلسلة معالجة لوسم أقسام الكلام على بنك الأشجار Universal Dependencies English-EWT (بصيغة CoNLL-U)، مع نموذج مرجعي بالانحدار اللوجستي (scikit-learn) وسلسلة معالجة أولية (بناء المفردات، ترميز الجمل، الحشو) لواسم تسلسلي عصبي.",
       kab: "Heggaɣ pipeline n usekyed n yiwalen (part-of-speech tagging) ɣef treebank n Universal Dependencies English-EWT (aɣanib CoNLL-U), s uslaḍ n tazwara s regression logistique (scikit-learn) akked pipeline n uheggi (asegzi n umawal, asekles n tefyar) i usekyad n uẓar amassan."
     },
     details: {
@@ -666,17 +706,20 @@ window.projects = [
     title: {
       en: "Bird Biodiversity Statistical Analysis",
       fr: "Analyse statistique de la biodiversité des oiseaux",
+      ar: "تحليل إحصائي للتنوع البيولوجي للطيور",
       kab: "Tasleḍt Tanadawit n Diversite Tabiologit n Igḍaḍ"
     },
-    period: { en: "Oct - Nov 2025", fr: "Oct. - Nov. 2025", kab: "Tuber - Nunber 2025" },
+    period: { en: "Oct - Nov 2025", fr: "Oct. - Nov. 2025", ar: "أكتوبر - نوفمبر 2025", kab: "Tuber - Nunber 2025" },
     summary: {
       en: "Exploratory and statistical analysis of bird observation data in Martinique (2012-2025).",
       fr: "Analyse exploratoire et statistique de données d'observations d'oiseaux en Martinique (2012-2025).",
+      ar: "تحليل استكشافي وإحصائي لبيانات رصد الطيور في المارتينيك (2012-2025).",
       kab: "Tasleḍt tanadawit n yisefka n twalatin n igḍaḍ deg Martinique (2012-2025)."
     },
     description: {
       en: "Team project (with Zineddine Kermadj and Amine Ouatmani) for an Applied Statistics course: exploratory and statistical analysis of bird observation data in Martinique (2012-2025), covering species distribution, temporal and spatial dynamics, biological indicators (species richness, mean abundance) and confidence intervals.",
       fr: "Projet d'équipe (avec Zineddine Kermadj et Amine Ouatmani) pour un cours de statistiques appliquées : analyse exploratoire et statistique de données d'observations d'oiseaux en Martinique (2012-2025), portant sur la distribution des espèces, les dynamiques temporelles et spatiales, des indicateurs biologiques (richesse spécifique, abondance moyenne) et des intervalles de confiance.",
+      ar: "مشروع جماعي (مع Zineddine Kermadj وAmine Ouatmani) لمقرر الإحصاء التطبيقي: تحليل استكشافي وإحصائي لبيانات رصد الطيور في المارتينيك (2012-2025)، يشمل توزّع الأنواع، والديناميكيات الزمنية والمكانية، والمؤشرات البيولوجية (ثراء الأنواع، متوسط الوفرة) ومجالات الثقة.",
       kab: "Asenfar n terbaɛt (akked Zineddine Kermadj d Amine Ouatmani) i uselmed n tsertit tanadawit (Applied Statistics): tasleḍt tanadawit n yisefka n twalatin n igḍaḍ deg Martinique (2012-2025), yesɛan tuzzya n twaculin, asnifel deg wakud d wadeg, asekyed abiologan (ṛṛay n twaculin, tamura talemmast) akked telwiyin n uɣtas."
     },
     links: [],
@@ -688,18 +731,21 @@ window.projects = [
     title: {
       en: "Indexed File Structures for a University Database",
       fr: "Structures de fichiers indexées pour une base de données universitaire",
+      ar: "هياكل ملفات مفهرسة لقاعدة بيانات جامعية",
       kab: "Tibnayin n Yifuyla s Index i Tesqamut n Tesdawit"
     },
-    period: { en: "2023 - 2024", fr: "2023 - 2024", kab: "2023 - 2024" },
+    period: { en: "2023 - 2024", fr: "2023 - 2024", ar: "2023 - 2024", kab: "2023 - 2024" },
     tags: ["C"],
     summary: {
       en: "Database of Algerian university teaching staff using binary files with bitmap indexes.",
       fr: "Base de données des enseignants des universités algériennes à l'aide de fichiers binaires et d'index bitmap.",
+      ar: "قاعدة بيانات لأساتذة الجامعات الجزائرية باستخدام ملفات ثنائية مع فهارس bitmap.",
       kab: "Tasqamut n iselmaden n tesdawiyin tizzayriyin s ifuyla imedduren akked index bitmap."
     },
     description: {
       en: "Designed a database of Algerian university teaching staff using binary files with indexes: fixed-size ordered block arrays for the data files and bitmap-structured index files, enabling fast, efficient operations on the data.",
       fr: "Conception d'une base de données des enseignants des universités algériennes à l'aide de fichiers binaires indexés : tableaux de blocs ordonnés de taille fixe pour les fichiers de données et fichiers d'index structurés en bitmap, permettant d'exécuter différentes opérations sur les données de manière rapide et efficace.",
+      ar: "تصميم قاعدة بيانات لأساتذة الجامعات الجزائرية باستخدام ملفات ثنائية مفهرسة: مصفوفات كتل مرتّبة ثابتة الحجم لملفات البيانات، وملفات فهرسة بهيكل bitmap، ما يتيح تنفيذ العمليات على البيانات بسرعة وكفاءة.",
       kab: "Heggaɣ tasqamut n iselmaden n tesdawiyin tizzayriyin s ifuyla imedduren s index: tirezzifin n yiḥricen yettwasnernin i tezmert tumesbanit i yifuyla n yisefka, akked ifuyla n index s tbenyi bitmap, i uxeddim aẓayan d ubaraz n yisefka."
     },
     details: {
@@ -735,18 +781,21 @@ window.projects = [
     title: {
       en: "Kawa Language Interpreter",
       fr: "Interpréteur du langage Kawa",
+      ar: "مفسّر لغة Kawa",
       kab: "Amsegzi n Tutlayt Kawa"
     },
-    period: { en: "Dec 2024 - Feb 2025", fr: "Déc. 2024 - Févr. 2025", kab: "Dujember 2024 - Fuṛar 2025" },
+    period: { en: "Dec 2024 - Feb 2025", fr: "Déc. 2024 - Févr. 2025", ar: "ديسمبر 2024 - فبراير 2025", kab: "Dujember 2024 - Fuṛar 2025" },
     tags: ["OCaml", "ocamllex", "Menhir"],
     summary: {
       en: "Parser, type checker and interpreter for the Kawa language, with several language extensions.",
       fr: "Analyseur syntaxique, vérificateur de types et interpréteur pour le langage Kawa, avec plusieurs extensions.",
+      ar: "محلّل نحوي ومدقّق أنواع ومفسّر للغة Kawa، مع عدة امتدادات للغة.",
       kab: "Aẓrag n usentel, asenqed n twinasin akked umsegzi i tutlayt Kawa."
     },
     description: {
       en: "Implemented a parser, type checker and interpreter for the Kawa teaching language, extended with immutable fields, visibility modifiers, static fields, serial variable declarations and additional type tests.",
       fr: "Implémentation d'un analyseur syntaxique, d'un vérificateur de types et d'un interpréteur pour le langage pédagogique Kawa, étendu avec des champs immuables, des modificateurs de visibilité, des champs statiques, des déclarations en série et des tests de type supplémentaires.",
+      ar: "تنفيذ محلّل نحوي ومدقّق أنواع ومفسّر للغة Kawa التعليمية، مع توسيعها بحقول غير قابلة للتعديل، ومحدّدات الرؤية، وحقول ساكنة، وتصريحات متغيرات متسلسلة، واختبارات أنواع إضافية.",
       kab: "Heggaɣ aẓrag n usentel (parser), asenqed n twinasin (type checker) akked umsegzi (interpreter) i tutlayt taselmadt Kawa, sɣerɣreɣ-t s izuran ur nettbeddil, tabadut n uskan, izuran ijgataen, ibeddilen n usentel s tfarrayt akked usekyed n twinasin nniḍen."
     },
     details: {

@@ -18,8 +18,9 @@
   // ---------------------------------------------------------------- helpers
 
   function lang() { return window.siteLang ? window.siteLang.getLang() : "en"; }
-  // Kabyle pages use the French strings
-  function tr(strings) { return strings[lang()] || strings.fr || strings.en; }
+  // untranslated strings: Kabyle pages use French, Arabic pages English
+  var FALLBACK = { kab: "fr", ar: "en" };
+  function tr(strings) { return strings[lang()] || strings[FALLBACK[lang()]] || strings.en; }
 
   function el(tag, className, text) {
     var node = document.createElement(tag);
@@ -128,7 +129,7 @@
   // each step(st, site, siteKey) returns the moves [[server, newPos], ...] and their cost
   var ALGOS = {
     greedy: {
-      name: { en: "Greedy", fr: "Glouton" },
+      name: { en: "Greedy", fr: "Glouton", ar: "الخوارزمية الجشعة" },
       step: function (st, site) {
         var best = 0, bestD = manhattan(st.servers[0], site);
         for (var j = 1; j < st.servers.length; j++) {
@@ -139,7 +140,7 @@
       }
     },
     balance: {
-      name: { en: "Balance (α = 0.5)", fr: "Balance (α = 0,5)" },
+      name: { en: "Balance (α = 0.5)", fr: "Balance (α = 0,5)", ar: "Balance (α = 0.5)" },
       step: function (st, site) {
         var dists = st.servers.map(function (s) { return manhattan(s, site); });
         var j = balanceChoice(st, dists, 0.5);
@@ -147,7 +148,7 @@
       }
     },
     decay: {
-      name: { en: "Balance, time decay", fr: "Balance, décroissance" },
+      name: { en: "Balance, time decay", fr: "Balance, décroissance", ar: "Balance، تناقص زمني" },
       step: function (st, site) {
         var alpha = 0.55 * Math.pow(0.9988, st.t);
         st.t += 1;
@@ -157,7 +158,7 @@
       }
     },
     reuse: {
-      name: { en: "Balance, reuse zero", fr: "Balance, réutilisation" },
+      name: { en: "Balance, reuse zero", fr: "Balance, réutilisation", ar: "Balance، إعادة الاستخدام بلا كلفة" },
       step: function (st, site, key) {
         var t = st.t;
         st.t += 1;
@@ -175,7 +176,7 @@
       }
     },
     dc: {
-      name: { en: "Double Coverage", fr: "Double Coverage" },
+      name: { en: "Double Coverage", fr: "Double Coverage", ar: "Double Coverage" },
       step: function (st, site) {
         var order = st.servers.map(function (s, j) { return [manhattan(s, site), j]; });
         order.sort(function (a, b) { return a[0] - b[0]; });
@@ -184,7 +185,7 @@
       }
     },
     harmonic: {
-      name: { en: "Harmonic (randomized)", fr: "Harmonic (randomisé)" },
+      name: { en: "Harmonic (randomized)", fr: "Harmonic (randomisé)", ar: "Harmonic (عشوائية)" },
       step: function (st, site) {
         var dists = st.servers.map(function (s) { return manhattan(s, site); });
         var zero = [];
@@ -226,15 +227,16 @@
     run: runInstance,
     mount: function (box) {
       var S = {
-        hint: { en: "Click or tap a grid to send a request: both algorithms serve it at once, starting with every server at (0, 0).", fr: "Cliquez ou touchez une grille pour envoyer une requête : les deux algorithmes la servent en même temps, tous les serveurs partant de (0, 0)." },
-        scenario: { en: "Scenario", fr: "Scénario" },
-        free: { en: "Free play — click the grid", fr: "Libre — cliquez sur la grille" },
-        instance: { en: "Test instance", fr: "Instance de test" },
-        servers: { en: "Servers", fr: "Serveurs" },
-        play: { en: "Play", fr: "Lancer" }, pause: { en: "Pause", fr: "Pause" },
-        reset: { en: "Reset", fr: "Réinitialiser" }, random: { en: "Random request", fr: "Requête au hasard" },
-        speed: { en: "Speed", fr: "Vitesse" },
-        cost: { en: "cost", fr: "coût" }, request: { en: "request", fr: "requête" }
+        hint: { en: "Click or tap a grid to send a request: both algorithms serve it at once, starting with every server at (0, 0).", fr: "Cliquez ou touchez une grille pour envoyer une requête : les deux algorithmes la servent en même temps, tous les serveurs partant de (0, 0).", ar: "انقر أو المس إحدى الشبكتين لإرسال طلب: تخدمه الخوارزميتان في الوقت نفسه، وتنطلق كل الخوادم من (0, 0)." },
+        scenario: { en: "Scenario", fr: "Scénario", ar: "السيناريو" },
+        free: { en: "Free play — click the grid", fr: "Libre — cliquez sur la grille", ar: "لعب حرّ — انقر على الشبكة" },
+        instance: { en: "Test instance", fr: "Instance de test", ar: "مثال اختبار" },
+        servers: { en: "Servers", fr: "Serveurs", ar: "الخوادم" },
+        play: { en: "Play", fr: "Lancer", ar: "تشغيل" }, pause: { en: "Pause", fr: "Pause", ar: "إيقاف مؤقت" },
+        reset: { en: "Reset", fr: "Réinitialiser", ar: "إعادة الضبط" }, random: { en: "Random request", fr: "Requête au hasard", ar: "طلب عشوائي" },
+        speed: { en: "Speed", fr: "Vitesse", ar: "السرعة" },
+        cost: { en: "cost", fr: "coût", ar: "الكلفة" }, request: { en: "request", fr: "requête", ar: "الطلب" },
+        ratio: { en: "ratio", fr: "ratio", ar: "النسبة" }
       };
       var algoOptions = Object.keys(ALGOS).map(function (k) { return [k, tr(ALGOS[k].name)]; });
       var scenarioOptions = [["free", tr(S.free)]].concat(Object.keys(INSTANCES).map(function (n) {
@@ -432,7 +434,7 @@
           if (inst) {
             txt = tr(S.request) + " " + state.step + "/" + inst.requests.length + " · " + txt;
             if (state.step === inst.requests.length) {
-              txt += " · OPT " + inst.opt + " · ratio " + (side.st.cost / inst.opt).toFixed(2);
+              txt += " · OPT " + inst.opt + " · " + tr(S.ratio) + " " + (side.st.cost / inst.opt).toFixed(2);
             }
           }
           side.readout.textContent = txt;
@@ -477,14 +479,14 @@
   demos.diffusion = {
     mount: function (box) {
       var S = {
-        yours: { en: "Your digit x₀ — draw on it", fr: "Votre chiffre x₀ — dessinez dessus" },
-        noised: { en: "Forward process: x_t", fr: "Processus direct : x_t" },
-        model: { en: "Trained model, reverse process", fr: "Modèle entraîné, processus inverse" },
-        clear: { en: "Clear", fr: "Effacer" }, digit: { en: "Model's digit", fr: "Chiffre du modèle" },
-        noise: { en: "New noise ε", fr: "Nouveau bruit ε" }, sample: { en: "Next sample", fr: "Échantillon suivant" },
-        signal: { en: "signal kept", fr: "signal conservé" },
-        nearest: { en: "nearest saved step", fr: "étape enregistrée la plus proche" },
-        hint: { en: "The x_t image is computed live in closed form, x_t = √ᾱ_t · x₀ + √(1 − ᾱ_t) · ε, with the project's linear β schedule. The last image shows the trained U-Net's actual outputs at the saved timestep closest to t — going the other way, from noise to a digit.", fr: "L'image x_t est calculée en direct par la forme close x_t = √ᾱ_t · x₀ + √(1 − ᾱ_t) · ε, avec le calendrier β linéaire du projet. La dernière image montre les vraies sorties du U-Net entraîné au pas de temps enregistré le plus proche de t — dans l'autre sens, du bruit vers un chiffre." }
+        yours: { en: "Your digit x₀ — draw on it", fr: "Votre chiffre x₀ — dessinez dessus", ar: "رقمك x₀ — ارسم عليه" },
+        noised: { en: "Forward process: x_t", fr: "Processus direct : x_t", ar: "العملية الأمامية: x_t" },
+        model: { en: "Trained model, reverse process", fr: "Modèle entraîné, processus inverse", ar: "النموذج المدرَّب، العملية العكسية" },
+        clear: { en: "Clear", fr: "Effacer", ar: "مسح" }, digit: { en: "Model's digit", fr: "Chiffre du modèle", ar: "رقم من النموذج" },
+        noise: { en: "New noise ε", fr: "Nouveau bruit ε", ar: "ضجيج جديد ε" }, sample: { en: "Next sample", fr: "Échantillon suivant", ar: "العيّنة التالية" },
+        signal: { en: "signal kept", fr: "signal conservé", ar: "الإشارة المتبقية" },
+        nearest: { en: "nearest saved step", fr: "étape enregistrée la plus proche", ar: "أقرب خطوة محفوظة" },
+        hint: { en: "The x_t image is computed live in closed form, x_t = √ᾱ_t · x₀ + √(1 − ᾱ_t) · ε, with the project's linear β schedule. The last image shows the trained U-Net's actual outputs at the saved timestep closest to t — going the other way, from noise to a digit.", fr: "L'image x_t est calculée en direct par la forme close x_t = √ᾱ_t · x₀ + √(1 − ᾱ_t) · ε, avec le calendrier β linéaire du projet. La dernière image montre les vraies sorties du U-Net entraîné au pas de temps enregistré le plus proche de t — dans l'autre sens, du bruit vers un chiffre.", ar: "تُحسب صورة x_t مباشرةً بالصيغة المغلقة x_t = √ᾱ_t · x₀ + √(1 − ᾱ_t) · ε، مع جدول β الخطي المستخدم في المشروع. وتعرض الصورة الأخيرة المخرجات الفعلية لشبكة U-Net المدرَّبة عند أقرب خطوة زمنية محفوظة إلى t — في الاتجاه المعاكس، من الضجيج إلى رقم." }
       };
       var state = { t: 250, digit: 0, sample: 0, x0: decodeDigit(DIGITS[0]), eps: null, sprite: null };
       function newNoise() {
@@ -508,6 +510,7 @@
       var sliderRow = el("div", "demo-slider");
       var slider = el("input");
       slider.type = "range"; slider.min = "0"; slider.max = "1000"; slider.value = String(state.t);
+      slider.dir = "ltr"; // t grows to the right, like the curve below, in every language
       slider.setAttribute("aria-label", "t");
       slider.addEventListener("input", function () { state.t = +slider.value; draw(); });
       sliderRow.appendChild(slider);
@@ -666,11 +669,11 @@
     solve: solveCatenary,
     mount: function (box) {
       var S = {
-        slack: { en: "Cable length (slack over the straight line)", fr: "Longueur du câble (mou par rapport à la ligne droite)" },
-        span: { en: "span", fr: "portée" }, rise: { en: "height difference", fr: "dénivelé" },
-        length: { en: "length", fr: "longueur" }, sag: { en: "sag", fr: "flèche" },
-        newton: { en: "Newton-Raphson steps", fr: "itérations de Newton-Raphson" },
-        hint: { en: "Drag the top of either pylon. The cable is re-solved on every move: the shape depends only on the two attachment points and the length, through a = C / (g · M/L) — the same catenary model as the simulation.", fr: "Faites glisser le sommet d'un pylône. Le câble est recalculé à chaque mouvement : sa forme ne dépend que des deux points d'attache et de sa longueur, via a = C / (g · M/L) — le même modèle de chaînette que la simulation." }
+        slack: { en: "Cable length (slack over the straight line)", fr: "Longueur du câble (mou par rapport à la ligne droite)", ar: "طول الكابل (الارتخاء مقارنة بالخط المستقيم)" },
+        span: { en: "span", fr: "portée", ar: "المسافة" }, rise: { en: "height difference", fr: "dénivelé", ar: "فرق الارتفاع" },
+        length: { en: "length", fr: "longueur", ar: "الطول" }, sag: { en: "sag", fr: "flèche", ar: "الترهّل" },
+        newton: { en: "Newton-Raphson steps", fr: "itérations de Newton-Raphson", ar: "تكرارات نيوتن-رافسون" },
+        hint: { en: "Drag the top of either pylon. The cable is re-solved on every move: the shape depends only on the two attachment points and the length, through a = C / (g · M/L) — the same catenary model as the simulation.", fr: "Faites glisser le sommet d'un pylône. Le câble est recalculé à chaque mouvement : sa forme ne dépend que des deux points d'attache et de sa longueur, via a = C / (g · M/L) — le même modèle de chaînette que la simulation.", ar: "اسحب قمة أيّ من البرجين. يُعاد حساب الكابل مع كل حركة: لا يتوقف شكله إلا على نقطتي التثبيت وطوله، عبر a = C / (g · M/L) — وهو نموذج السلسلة المعلّقة نفسه المستخدم في المحاكاة." }
       };
       // world units are metres; the view shows 220 m by 90 m
       var W = 220, H = 90;
@@ -683,6 +686,7 @@
       sliderRow.appendChild(lab);
       var slider = el("input");
       slider.type = "range"; slider.min = "0.2"; slider.max = "25"; slider.step = "0.1"; slider.value = "2";
+      slider.dir = "ltr";
       slider.setAttribute("aria-label", tr(S.slack));
       slider.addEventListener("input", function () { state.slack = +slider.value / 100; draw(); });
       sliderRow.appendChild(slider);
@@ -1059,18 +1063,19 @@
   demos.growth = {
     mount: function (box) {
       var S = {
-        dataset: { en: "Dataset", fr: "Données" },
-        circles: { en: "Circles", fr: "Cercles" }, moons: { en: "Moons", fr: "Lunes" }, spiral: { en: "Spiral", fr: "Spirale" },
-        play: { en: "Play", fr: "Lancer" }, pause: { en: "Pause", fr: "Pause" }, reset: { en: "Restart", fr: "Recommencer" },
-        speed: { en: "Speed", fr: "Vitesse" },
-        network: { en: "The network", fr: "Le réseau" }, boundary: { en: "What it predicts", fr: "Ce qu'il prédit" },
-        layer: { en: "layer", fr: "couche" }, step: { en: "step", fr: "étape" }, loss: { en: "loss", fr: "perte" },
-        acc: { en: "accuracy", fr: "précision" }, neurons: { en: "neurons", fr: "neurones" }, params: { en: "parameters", fr: "paramètres" },
-        growing: { en: "growing", fr: "en croissance" }, stopped: { en: "growth stopped at step", fr: "croissance arrêtée à l'étape" },
-        done: { en: "done", fr: "terminé" }, stopMark: { en: "growth stops", fr: "fin de la croissance" },
+        dataset: { en: "Dataset", fr: "Données", ar: "البيانات" },
+        circles: { en: "Circles", fr: "Cercles", ar: "دوائر" }, moons: { en: "Moons", fr: "Lunes", ar: "أهلّة" }, spiral: { en: "Spiral", fr: "Spirale", ar: "حلزون" },
+        play: { en: "Play", fr: "Lancer", ar: "تشغيل" }, pause: { en: "Pause", fr: "Pause", ar: "إيقاف مؤقت" }, reset: { en: "Restart", fr: "Recommencer", ar: "إعادة البدء" },
+        speed: { en: "Speed", fr: "Vitesse", ar: "السرعة" },
+        network: { en: "The network", fr: "Le réseau", ar: "الشبكة" }, boundary: { en: "What it predicts", fr: "Ce qu'il prédit", ar: "ما تتنبأ به" },
+        layer: { en: "layer", fr: "couche", ar: "الطبقة" }, step: { en: "step", fr: "étape", ar: "الخطوة" }, loss: { en: "loss", fr: "perte", ar: "الخسارة" },
+        acc: { en: "accuracy", fr: "précision", ar: "الدقة" }, neurons: { en: "neurons", fr: "neurones", ar: "العصبونات" }, params: { en: "parameters", fr: "paramètres", ar: "معاملات" },
+        growing: { en: "growing", fr: "en croissance", ar: "في طور النمو" }, stopped: { en: "growth stopped at step", fr: "croissance arrêtée à l'étape", ar: "توقّف النمو عند الخطوة" },
+        done: { en: "done", fr: "terminé", ar: "انتهى" }, stopMark: { en: "growth stops", fr: "fin de la croissance", ar: "توقّف النمو" },
         hint: {
           en: "A toy version of the idea, trained live in your browser. The network starts with one neuron per hidden layer. Every 200 training steps, one layer in turn is offered new neurons, computed the way Gromo does it: from the activations entering the layer and the gradients leaving it, the SVD of S^(-1/2) N gives the best new neurons, and each singular value is that neuron's first-order gain on the loss. A neuron is added only if its gain clears s = 0.005, and growth stops once neither layer offers even u = 0.0005 — the paper's pair of thresholds, at toy scale. Try the spiral: it ends up needing a much bigger network than the circles. (Simplified: the existing weights are not re-fitted before growing, and the real method grows convolutional cells, not a two-input toy.)",
-          fr: "Une version jouet de l'idée, entraînée en direct dans votre navigateur. Le réseau commence avec un neurone par couche cachée. Toutes les 200 étapes d'entraînement, une couche à tour de rôle se voit proposer de nouveaux neurones, calculés comme le fait Gromo : à partir des activations qui entrent dans la couche et des gradients qui en sortent, la SVD de S^(-1/2) N donne les meilleurs nouveaux neurones, et chaque valeur singulière est le gain au premier ordre de ce neurone sur la perte. Un neurone n'est ajouté que si son gain dépasse s = 0,005, et la croissance s'arrête quand aucune couche n'offre plus même u = 0,0005 — le couple de seuils de l'article, à l'échelle d'un jouet. Essayez la spirale : elle finit par demander un réseau bien plus grand que les cercles. (Simplifié : les poids existants ne sont pas réajustés avant la croissance, et la vraie méthode fait croître des cellules convolutives, pas un réseau jouet à deux entrées.)"
+          fr: "Une version jouet de l'idée, entraînée en direct dans votre navigateur. Le réseau commence avec un neurone par couche cachée. Toutes les 200 étapes d'entraînement, une couche à tour de rôle se voit proposer de nouveaux neurones, calculés comme le fait Gromo : à partir des activations qui entrent dans la couche et des gradients qui en sortent, la SVD de S^(-1/2) N donne les meilleurs nouveaux neurones, et chaque valeur singulière est le gain au premier ordre de ce neurone sur la perte. Un neurone n'est ajouté que si son gain dépasse s = 0,005, et la croissance s'arrête quand aucune couche n'offre plus même u = 0,0005 — le couple de seuils de l'article, à l'échelle d'un jouet. Essayez la spirale : elle finit par demander un réseau bien plus grand que les cercles. (Simplifié : les poids existants ne sont pas réajustés avant la croissance, et la vraie méthode fait croître des cellules convolutives, pas un réseau jouet à deux entrées.)",
+          ar: "نسخة مبسّطة من الفكرة، تُدرَّب مباشرةً في متصفحك. تبدأ الشبكة بعصبون واحد في كل طبقة مخفية. كل 200 خطوة تدريب، تُعرض على إحدى الطبقتين بالتناوب عصبونات جديدة تُحسب بطريقة Gromo نفسها: انطلاقًا من التنشيطات الداخلة إلى الطبقة والتدرّجات الخارجة منها، يعطي تفكيك القيم المنفردة (SVD) للمصفوفة S^(-1/2) N أفضل العصبونات الجديدة، وكل قيمة منفردة هي ربح ذلك العصبون من الدرجة الأولى على الخسارة. لا يُضاف عصبون إلا إذا تجاوز ربحه s = 0.005، ويتوقف النمو حين لا تقدّم أيّ طبقة ولو u = 0.0005 — وهما زوج العتبات الوارد في المقال، على مقياس مصغّر. جرّب الحلزون: سيحتاج في النهاية إلى شبكة أكبر بكثير من الدوائر. (تبسيط: لا يُعاد ضبط الأوزان الموجودة قبل النمو، والطريقة الحقيقية تُنمّي خلايا التفافية، لا شبكة مصغّرة بمدخلين.)"
         }
       };
 

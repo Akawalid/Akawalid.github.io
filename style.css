@@ -13,8 +13,8 @@
   --bg-rgb: 21, 23, 27;
   color-scheme: dark;
 
-  --sans: "IBM Plex Sans", "Noto Sans Tifinagh", system-ui, sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --sans: "IBM Plex Sans", "IBM Plex Sans Arabic", "Noto Sans Tifinagh", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", "IBM Plex Sans Arabic", ui-monospace, Menlo, monospace;
   --side: 9rem; /* the date / label column */
   --gap: 2rem;
 }
@@ -103,7 +103,7 @@ a:hover {
 .site-nav {
   display: flex;
   gap: 22px;
-  margin-right: auto;
+  margin-inline-end: auto;
 }
 
 .site-nav a {
@@ -583,7 +583,7 @@ h2::after {
 }
 
 .plain-list {
-  padding-left: calc(var(--side) + var(--gap));
+  padding-inline-start: calc(var(--side) + var(--gap));
 }
 
 .plain-list li {
@@ -596,7 +596,7 @@ h2::after {
 .plain-list li::before {
   content: "";
   position: absolute;
-  left: -16px;
+  inset-inline-start: -16px;
   top: 0.7em;
   width: 5px;
   height: 1px;
@@ -713,7 +713,7 @@ footer {
   font-family: var(--mono);
   font-size: 0.75rem;
   font-weight: 500;
-  text-align: left;
+  text-align: start;
   color: var(--muted);
   white-space: nowrap;
 }
@@ -756,8 +756,8 @@ footer {
 }
 
 .project-pager a.next {
-  margin-left: auto;
-  text-align: right;
+  margin-inline-start: auto;
+  text-align: end;
 }
 
 /* technology tags, on the home page entries and the project pages */
@@ -987,6 +987,65 @@ footer {
   text-decoration: none;
 }
 
+/* Arabic: right-to-left layout, arrows that point the reading way, and no
+   letter-spacing or capitals, which would break the joined Arabic script */
+
+:root[lang="ar"] {
+  font-size: 17.5px;
+}
+
+:root[lang="ar"] body {
+  line-height: 1.8;
+}
+
+:root[lang="ar"] * {
+  letter-spacing: 0 !important;
+}
+
+:root[lang="ar"] h2 {
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-transform: none;
+}
+
+:root[lang="ar"] .entry-date,
+:root[lang="ar"] .feature-meta,
+:root[lang="ar"] .demo-label,
+:root[lang="ar"] .cv-meta,
+:root[lang="ar"] .site-nav,
+:root[lang="ar"] .back-link,
+:root[lang="ar"] .coursework-more summary {
+  font-family: var(--sans);
+}
+
+:root[dir="rtl"] .entry-title a::after,
+:root[dir="rtl"] .feature-title a::after,
+:root[dir="rtl"] .more-title::after {
+  content: " ←";
+}
+
+/* write-ups shown in English on the Arabic page */
+.details-note {
+  margin: 32px 0 -8px !important;
+  padding: 8px 12px;
+  border-inline-start: 2px solid var(--accent);
+  background: var(--code-bg);
+  font-size: 0.88rem;
+  color: var(--text-2) !important;
+}
+
+.project-details[dir="ltr"] {
+  text-align: left;
+}
+
+/* code, formulas and canvases always read left to right */
+.detail-code,
+.katex-display {
+  direction: ltr;
+  text-align: left;
+}
+
 /* small screens: the date column moves above each entry */
 
 @media (max-width: 640px) {
@@ -1000,7 +1059,7 @@ footer {
   .site-nav {
     order: 3;
     width: 100%;
-    margin-right: 0;
+    margin-inline-end: 0;
   }
 
   .page-header h1 {
@@ -1040,7 +1099,7 @@ footer {
   }
 
   .plain-list {
-    padding-left: 16px;
+    padding-inline-start: 16px;
   }
 
   #project-detail h2 {

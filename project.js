@@ -66,6 +66,10 @@ function renderProject() {
   var container = document.getElementById("project-detail");
   var lang = window.siteLang.getLang();
   var dict = window.siteLang.t();
+  var pick = window.siteLang.pick;
+  // arrows point the way the page reads (right to left in Arabic)
+  var rtl = document.documentElement.dir === "rtl";
+  var arrowBack = rtl ? "→ " : "← ", arrowOn = rtl ? " ←" : " →";
 
   if (!project) {
     container.textContent = "";
@@ -73,7 +77,7 @@ function renderProject() {
     return;
   }
 
-  document.getElementById("page-title").textContent = project.title[lang];
+  document.getElementById("page-title").textContent = pick(project.title);
 
   // "back" returns to the page this entry is listed on, which the top bar marks too
   var isResearch = project.type === "research";
@@ -81,7 +85,7 @@ function renderProject() {
   var back = document.querySelector(".back-link");
   if (back) {
     back.href = listPage;
-    back.textContent = "← " + (isResearch ? dict.navResearch : dict.navProjects);
+    back.textContent = arrowBack + (isResearch ? dict.navResearch : dict.navProjects);
   }
   document.querySelectorAll(".site-nav a").forEach(function (a) {
     var on = a.getAttribute("href") === listPage;
@@ -91,11 +95,11 @@ function renderProject() {
 
   container.textContent = "";
 
-  container.appendChild(el("h2", "", project.title[lang]));
-  container.appendChild(el("p", "period", project.period[lang].replace(/ - /g, "–")));
+  container.appendChild(el("h2", "", pick(project.title)));
+  container.appendChild(el("p", "period", pick(project.period).replace(/ - /g, "–")));
 
   if (project.type === "research") {
-    container.appendChild(el("p", "research-meta", project.lab[lang] + " - " + dict.supervisedBy + " " + project.supervisors));
+    container.appendChild(el("p", "research-meta", pick(project.lab) + " - " + dict.supervisedBy + " " + project.supervisors));
   }
 
   if (project.tags && project.tags.length) {
@@ -118,7 +122,7 @@ function renderProject() {
 
   // same short text as the home-page list - kept identical on purpose
   var intro = el("div", "project-intro");
-  project.description[lang].split("\n\n").forEach(function (para) {
+  pick(project.description).split("\n\n").forEach(function (para) {
     intro.appendChild(el("p", "", para));
   });
   container.appendChild(intro);
@@ -126,18 +130,28 @@ function renderProject() {
   if (project.demo && window.siteDemos && window.siteDemos[project.demo]) {
     var demo = el("div", "demo-section");
     demo.id = "demo";
-    demo.appendChild(el("h3", "detail-heading", dict.demoTitle || window.i18n.fr.demoTitle));
+    demo.appendChild(el("h3", "detail-heading", dict.demoTitle || window.i18n[window.siteLang.fallback()].demoTitle));
     var demoBox = el("div", "demo-box");
     demo.appendChild(demoBox);
     container.appendChild(demo);
     window.siteDemos[project.demo].mount(demoBox);
   }
 
-  // the richer write-up; entries written only in English and French show
-  // the French text on the Kabyle page
-  var details = project.details && (project.details[lang] || project.details.fr || project.details.en);
-  if (details) {
-    details.forEach(function (block) { if (block) renderBlock(block, container); });
+  // the richer write-up; where it is not translated yet it shows in the
+  // fallback language (French for Kabyle, English for Arabic), laid out in
+  // that language's own direction
+  var detailLang = !project.details ? null :
+    project.details[lang] ? lang : project.details[window.siteLang.fallback()] ? window.siteLang.fallback() :
+    project.details.en ? "en" : "fr";
+  if (detailLang) {
+    var body = el("div", "project-details");
+    body.lang = detailLang;
+    body.dir = detailLang === "ar" ? "rtl" : "ltr";
+    if (detailLang !== lang && dict.detailsInEnglish && detailLang === "en") {
+      container.appendChild(el("p", "details-note", dict.detailsInEnglish));
+    }
+    project.details[detailLang].forEach(function (block) { if (block) renderBlock(block, body); });
+    container.appendChild(body);
   }
 
   if (project.images && project.images.length > 0) {
@@ -145,7 +159,7 @@ function renderProject() {
     project.images.forEach(function (image) {
       var img = el("img");
       img.src = typeof image === "string" ? image : image.src;
-      img.alt = typeof image === "string" ? (project.title[lang] + " screenshot") : image.alt;
+      img.alt = typeof image === "string" ? (pick(project.title) + " screenshot") : image.alt;
       gallery.appendChild(img);
     });
     container.appendChild(gallery);
@@ -155,10 +169,11 @@ function renderProject() {
   var all = orderedProjects();
   var index = all.indexOf(project);
   var pager = el("nav", "project-pager");
-  [[all[index - 1], "prev", "← "], [all[index + 1], "next", ""]].forEach(function (item) {
+  [[all[index - 1], "prev"], [all[index + 1], "next"]].forEach(function (item) {
     var target = item[0];
     if (!target) { pager.appendChild(el("span")); return; }
-    var a = el("a", item[1], item[2] + target.title[lang] + (item[1] === "next" ? " →" : ""));
+    var label = item[1] === "prev" ? arrowBack + pick(target.title) : pick(target.title) + arrowOn;
+    var a = el("a", item[1], label);
     a.href = "project.html?id=" + encodeURIComponent(target.slug);
     pager.appendChild(a);
   });
