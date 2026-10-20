@@ -8,14 +8,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=9">
+<link rel="stylesheet" href="style.css?v=14">
 </head>
-<body id="top">
+<body>
 
 <div class="page">
 
-  <nav class="top-bar">
-    <a class="top-mark" href="#top">OC</a>
+  <header class="top-bar">
+    <a class="top-mark" href="index.html">OC</a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="research.html" data-i18n="navResearchShort"></a>
+      <a href="projects.html" data-i18n="navProjects"></a>
+      <a href="cv.html" data-i18n="navCV"></a>
+    </nav>
     <div class="top-actions">
       <div class="lang-switch">
         <button type="button" data-lang="en" aria-label="English">EN</button>
@@ -27,9 +32,9 @@
         <svg class="icon-moon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5a6.6 6.6 0 0 0 9.7 9.7z"/></svg>
       </button>
     </div>
-  </nav>
+  </header>
 
-  <header class="hero">
+  <div class="hero">
     <canvas class="signal-portrait" id="signal-canvas" width="460" height="460" role="img" aria-label="Portrait of Oualid Chabane, drawn live by rotating Fourier epicycles tracing the outline"></canvas>
     <h1 class="site-name">Oualid Chabane</h1>
     <p class="tagline" data-i18n="tagline"></p>
@@ -40,52 +45,25 @@
       <li><span class="mono">oualid.chabane[at]ens-paris-saclay.fr</span></li>
     </ul>
     <p class="hero-meta"><span data-i18n="location"></span> · <span data-i18n="contactDob"></span> <span data-i18n="dob"></span></p>
-  </header>
-
-</div>
-
-<nav class="section-nav" aria-label="Sections">
-  <div class="section-nav-inner">
-    <a href="#education" data-i18n="navEducation"></a>
-    <a href="#research" data-i18n="navResearchShort"></a>
-    <a href="#publications" data-i18n="navPublications"></a>
-    <a href="#projects" data-i18n="navProjects"></a>
-    <a href="#awards" data-i18n="navAwardsShort"></a>
-    <a href="#skills" data-i18n="navSkills"></a>
   </div>
-</nav>
-
-<div class="page">
 
   <main>
-    <section id="education">
-      <h2 data-i18n="navEducation"></h2>
-      <ul class="entries" id="education-list"></ul>
+    <section id="about">
+      <h2 data-i18n="navAbout"></h2>
+      <p class="about" data-i18n="about"></p>
     </section>
 
-    <section id="research">
-      <h2 data-i18n="navResearch"></h2>
-      <ul class="entries" id="research-list"></ul>
+    <section id="selected">
+      <h2 data-i18n="navSelected"></h2>
+      <ul class="features" id="featured-list"></ul>
     </section>
 
-    <section id="publications">
-      <h2 data-i18n="navPublications"></h2>
-      <ul class="plain-list" id="publications-list"></ul>
-    </section>
-
-    <section id="projects">
-      <h2 data-i18n="navProjects"></h2>
-      <ul class="entries" id="project-list"></ul>
-    </section>
-
-    <section id="awards">
-      <h2 data-i18n="navAwards"></h2>
-      <ul class="plain-list" id="awards-list"></ul>
-    </section>
-
-    <section id="skills">
-      <h2 data-i18n="navSkills"></h2>
-      <ul class="entries compact" id="skills-list"></ul>
+    <section id="more">
+      <div class="more-links">
+        <a href="research.html"><span class="more-title" data-i18n="navResearch"></span><span class="more-sub" data-i18n="moreResearch"></span></a>
+        <a href="projects.html"><span class="more-title" data-i18n="navProjects"></span><span class="more-sub" data-i18n="moreProjects"></span></a>
+        <a href="cv.html"><span class="more-title" data-i18n="navCV"></span><span class="more-sub" data-i18n="moreCV"></span></a>
+      </div>
     </section>
   </main>
 
@@ -96,11 +74,11 @@
 
 </div>
 
-<script src="theme.js?v=9"></script>
-<script src="i18n.js?v=9"></script>
-<script src="lang.js?v=9"></script>
-<script src="projects.js?v=9"></script>
-<script src="main.js?v=9"></script>
-<script src="epicycles.js?v=9"></script>
+<script src="theme.js?v=14"></script>
+<script src="i18n.js?v=14"></script>
+<script src="lang.js?v=14"></script>
+<script src="projects.js?v=14"></script>
+<script src="main.js?v=14"></script>
+<script src="epicycles.js?v=14"></script>
 </body>
 </html>

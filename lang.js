@@ -68,9 +68,11 @@
     document.documentElement.lang = getLang() === "kab" ? "kab" : getLang();
     document.documentElement.classList.toggle("lang-kab", getLang() === "kab");
 
+    // strings not translated into Kabyle yet fall back to French
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var key = el.getAttribute("data-i18n");
-      if (dict[key] !== undefined) el.textContent = dict[key];
+      var value = dict[key] !== undefined ? dict[key] : window.i18n.fr[key];
+      if (value !== undefined) el.textContent = value;
     });
 
     if (document.getElementById("education-list")) {
@@ -107,6 +109,16 @@
     if (document.getElementById("skills-list")) {
       renderListInto("skills-list", dict.skills, function (entry) {
         var e = makeEntry(entry.label);
+        addLine(e.main, "entry-text", entry.text);
+        return e.li;
+      });
+    }
+
+    if (document.getElementById("experience-list")) {
+      renderListInto("experience-list", dict.experience || window.i18n.fr.experience, function (entry) {
+        var e = makeEntry(entry.years);
+        addLine(e.main, "entry-title", entry.title);
+        addLine(e.main, "entry-sub", entry.place);
         addLine(e.main, "entry-text", entry.text);
         return e.li;
       });

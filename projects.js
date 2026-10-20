@@ -9,12 +9,17 @@ window.projects = [
     },
     period: { en: "May - Aug 2026", fr: "Mai - Août 2026", kab: "Mayyu - Ɣuct 2026" },
     tags: ["Python", "PyTorch", "CFD", "Codabench"],
+    preview: "images/preview-onera-challenge.jpg",
     lab: {
       en: "LISN, University of Paris-Saclay",
       fr: "LISN, Université Paris-Saclay",
       kab: "LISN, Tasdawit n Paris-Saclay"
     },
     supervisors: "Lisheng Sun, Sylvain Chevallier, Jacques Peter, Jean-Luc Hantrais-Gervois",
+    pitch: {
+      en: "Designed a scientific machine learning challenge for the 2027 DataCamp: from the flight conditions of an unseen RANS simulation, predict the air density at 260,774 points on the surface of ONERA's CRM aircraft, ranked by a KL-divergence metric that catches local bias.",
+      fr: "Conception d'un défi d'apprentissage automatique scientifique pour le DataCamp 2027 : à partir des conditions de vol d'une simulation RANS inédite, prédire la densité de l'air en 260 774 points de la surface de l'avion CRM de l'ONERA, avec un classement par divergence de Kullback-Leibler qui détecte les biais locaux."
+    },
     summary: {
       en: "Scientific machine learning challenge based on RANS CFD simulations, featured in DataCamp 2027.",
       fr: "Défi d'apprentissage automatique scientifique basé sur des simulations CFD RANS, présenté à DataCamp 2027.",
@@ -71,12 +76,17 @@ window.projects = [
     },
     period: { en: "Jan - Apr 2026", fr: "Janv. - Avr. 2026", kab: "Yennayer - Yebrir 2026" },
     tags: ["PyTorch Geometric", "e3nn", "DeepHyper", "SLURM"],
+    preview: "images/preview-equivariant-gnn.jpg",
     lab: {
       en: "LISN, University of Paris-Saclay",
       fr: "LISN, Université Paris-Saclay",
       kab: "LISN, Tasdawit n Paris-Saclay"
     },
     supervisors: "François Landes",
+    pitch: {
+      en: "Bayesian hyperparameter search with DeepHyper on SE(3)-equivariant graph networks that predict how particles move in glassy liquids — and a padded variant of the network that lets every layer use its own irreducible representations.",
+      fr: "Recherche bayésienne d'hyperparamètres avec DeepHyper sur des réseaux de graphes équivariants SE(3) qui prédisent le mouvement des particules dans les liquides vitreux — et une variante du réseau, avec padding, qui laisse chaque couche utiliser ses propres représentations irréductibles."
+    },
     summary: {
       en: "Bayesian hyperparameter search on SE(3)-equivariant graph neural networks to predict dynamical propensity.",
       fr: "Recherche bayésienne d'hyperparamètres sur des réseaux de neurones de graphes équivariants SE(3) pour prédire la propension dynamique.",
@@ -142,12 +152,17 @@ window.projects = [
     },
     period: { en: "May - Jul 2025", fr: "Mai - Juil. 2025", kab: "Mayyu - Yulyu 2025" },
     tags: ["Rust", "Creusot", "Why3"],
+    preview: "images/preview-rust-verification.jpg",
     lab: {
       en: "Laboratory of Formal Methods, Gif-sur-Yvette",
       fr: "Laboratoire Méthodes Formelles, Gif-sur-Yvette",
       kab: "Laboratoire Méthodes Formelles, Gif-sur-Yvette"
     },
     supervisors: "Jean-Christophe Filliatre, Arnaud Golfouse, Paul Patault",
+    pitch: {
+      en: "Formal proof, with Creusot, of an in-place reversal of a raw-pointer linked list in Rust — the kind of code the borrow checker cannot reason about — by carrying the memory-separation argument through ghost ownership instead of separation logic.",
+      fr: "Preuve formelle, avec Creusot, d'une inversion en place d'une liste chaînée à pointeurs bruts en Rust — le genre de code sur lequel le borrow checker ne peut pas raisonner — en portant l'argument de séparation mémoire par une possession fantôme plutôt que par la logique de séparation."
+    },
     summary: {
       en: "Formal verification of Rust programs using the Creusot tool.",
       fr: "Vérification formelle de programmes Rust à l'aide de l'outil Creusot.",
@@ -292,6 +307,8 @@ window.projects = [
     },
     period: { en: "Apr - May 2026", fr: "Avr. - Mai 2026", kab: "Yebrir - Mayyu 2026" },
     tags: ["PyTorch", "U-Net", "MNIST"],
+    demo: "diffusion",
+    preview: "images/preview-diffusion-model.jpg",
     summary: {
       en: "Implementation of DDPM (Ho, Jain and Abbeel, 2020) using PyTorch.",
       fr: "Implémentation du DDPM (Ho, Jain et Abbeel, 2020) avec PyTorch.",
@@ -346,6 +363,7 @@ window.projects = [
     },
     period: { en: "Jan - Feb 2026", fr: "Janv. - Févr. 2026", kab: "Yennayer - Fuṛar 2026" },
     tags: ["Python", "BBMN", "WFA"],
+    demo: "kserver",
     summary: {
       en: "Approximation of a polylogarithmic-competitive online algorithm for the k-server problem.",
       fr: "Approximation d'un algorithme en ligne polylogarithmique-compétitif pour le problème des k-serveurs.",
@@ -442,6 +460,8 @@ window.projects = [
     },
     period: { en: "Jul - Sep 2026", fr: "Juil. - Sept. 2026", kab: "Yulyu - Ctember 2026" },
     tags: ["PyTorch", "Gromo", "SLURM", "Codabench"],
+    demo: "growth",
+    preview: "images/preview-nas-automl-challenge.jpg",
     summary: {
       en: "Reproduced and benchmarked a single-run network-growth architecture search method (Gromo) across five datasets.",
       fr: "Reproduction et évaluation d'une méthode de recherche d'architecture par croissance de réseau (Gromo) sur cinq jeux de données.",
@@ -536,6 +556,8 @@ window.projects = [
     },
     period: { en: "Apr - May 2024", fr: "Avr. - Mai 2024", kab: "Yebrir - Mayyu 2024" },
     tags: ["Processing", "GLSL"],
+    demo: "catenary",
+    preview: "images/preview-geo-simulation.jpg",
     summary: {
       en: "Simulation of Saint-Aubin geography using real physical laws and optimization methods.",
       fr: "Simulation de la géographie de Saint-Aubin à l'aide de lois physiques réelles et de méthodes d'optimisation.",
@@ -755,3 +777,6 @@ window.projects = [
     images: []
   }
 ];
+
+// shown as cards on the home page, in this order
+window.featuredProjects = ["onera-challenge", "equivariant-gnn", "rust-verification"];

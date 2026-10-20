@@ -75,9 +75,19 @@ function renderProject() {
 
   document.getElementById("page-title").textContent = project.title[lang];
 
-  // "back" returns to the section of the home page this entry is listed in
+  // "back" returns to the page this entry is listed on, which the top bar marks too
+  var isResearch = project.type === "research";
+  var listPage = isResearch ? "research.html" : "projects.html";
   var back = document.querySelector(".back-link");
-  if (back) back.href = "index.html#" + (project.type === "research" ? "research" : "projects");
+  if (back) {
+    back.href = listPage;
+    back.textContent = "← " + (isResearch ? dict.navResearch : dict.navProjects);
+  }
+  document.querySelectorAll(".site-nav a").forEach(function (a) {
+    var on = a.getAttribute("href") === listPage;
+    a.classList.toggle("active", on);
+    if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+  });
 
   container.textContent = "";
 
@@ -112,6 +122,16 @@ function renderProject() {
     intro.appendChild(el("p", "", para));
   });
   container.appendChild(intro);
+
+  if (project.demo && window.siteDemos && window.siteDemos[project.demo]) {
+    var demo = el("div", "demo-section");
+    demo.id = "demo";
+    demo.appendChild(el("h3", "detail-heading", dict.demoTitle || window.i18n.fr.demoTitle));
+    var demoBox = el("div", "demo-box");
+    demo.appendChild(demoBox);
+    container.appendChild(demo);
+    window.siteDemos[project.demo].mount(demoBox);
+  }
 
   // the richer write-up; entries written only in English and French show
   // the French text on the Kabyle page
@@ -156,3 +176,9 @@ function renderProject() {
 
 window.addEventListener("langchange", renderProject);
 renderProject();
+
+// a link to "#demo" lands on the demo once the page has been built
+window.addEventListener("load", function () {
+  var target = location.hash && document.getElementById(location.hash.slice(1));
+  if (target) target.scrollIntoView({ behavior: "instant" });
+});
