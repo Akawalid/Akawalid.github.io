@@ -20,6 +20,18 @@
   if (!canvas || !canvas.getContext) return;
   var ctx = canvas.getContext("2d");
 
+  // colours come from the stylesheet's palette (--ink-rgb / --accent-rgb),
+  // re-read whenever the light / dark theme changes
+  var INK, ACCENT;
+  function readColors() {
+    var rootStyle = getComputedStyle(document.documentElement);
+    INK = rootStyle.getPropertyValue("--ink-rgb").trim() || "231, 229, 225";
+    ACCENT = rootStyle.getPropertyValue("--accent-rgb").trim() || "255, 123, 71";
+  }
+  readColors();
+  window.addEventListener("themechange", readColors);
+  function rgba(rgb, alpha) { return "rgba(" + rgb + "," + alpha + ")"; }
+
   var PERIOD_MS = 9000; // one full lap of the outline
   var WAVE_AMP = 20; // px (native image space), vertical deflection per sample
 
@@ -46,8 +58,7 @@
 
     var offset = 4;
     var count = view.getUint16(offset, true); offset += 2;
-    var halfW = view.getFloat32(offset, true); offset += 4;
-    var halfH = view.getFloat32(offset, true); offset += 4;
+    offset += 8; // stored half width / height - the traced outline's own box is used instead
 
     terms = [];
     for (var i = 0; i < count; i++) {
@@ -59,28 +70,34 @@
     // largest circle first, so each next one visibly rides the last
     terms.sort(function (a, b) { return b.amp - a.amp; });
 
+    // sample the full closed outline once - it's exactly periodic, so this
+    // is the real, complete traced path - and fit the canvas to its box
+    var TRAIL_STEPS = 500;
+    var pts = [];
+    var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    for (var s = 0; s <= TRAIL_STEPS; s++) {
+      var p = sumAt(terms, (2 * Math.PI * s) / TRAIL_STEPS);
+      pts.push(p);
+      minX = Math.min(minX, p.re); maxX = Math.max(maxX, p.re);
+      minY = Math.min(minY, -p.im); maxY = Math.max(maxY, -p.im);
+    }
+
     var PAD = 22;
-    var span = 2 * Math.max(halfW, halfH);
-    scale = (460 - PAD * 2) / span;
-    w = Math.round(2 * halfW * scale + PAD * 2);
-    h = Math.round(2 * halfH * scale + PAD * 2);
+    scale = (460 - PAD * 2) / Math.max(maxX - minX, maxY - minY);
+    w = Math.round((maxX - minX) * scale + PAD * 2);
+    h = Math.round((maxY - minY) * scale + PAD * 2);
     canvas.width = w;
     canvas.height = h;
-    originX = w / 2;
-    originY = h / 2;
+    originX = PAD - minX * scale;
+    originY = PAD - minY * scale;
     geometry = { originX: originX, originY: originY, scale: scale };
 
-    // precompute the full closed outline once - it's exactly periodic, so
-    // this is the real, complete traced path, always fully visible
-    var TRAIL_STEPS = 500;
     trail = new Path2D();
-    for (var s = 0; s <= TRAIL_STEPS; s++) {
-      var tt = (2 * Math.PI * s) / TRAIL_STEPS;
-      var p = sumAt(terms, tt);
+    pts.forEach(function (p, k) {
       var px = originX + p.re * scale;
       var py = originY - p.im * scale;
-      if (s === 0) trail.moveTo(px, py); else trail.lineTo(px, py);
-    }
+      if (k === 0) trail.moveTo(px, py); else trail.lineTo(px, py);
+    });
 
     requestAnimationFrame(frame);
   }
@@ -141,7 +158,7 @@
 
     // the analog signal, live inside the contour
     if (waveRows) {
-      ctx.strokeStyle = "rgba(43,32,19,0.55)";
+      ctx.strokeStyle = rgba(INK, 0.42);
       ctx.lineWidth = 1;
       waveRows.forEach(function (row) {
         var wobble = Math.sin(elapsed * 1.1 + row.seed) * (0.35 * scale);
@@ -153,7 +170,7 @@
     }
 
     // the finished outline - always fully drawn
-    ctx.strokeStyle = "rgba(43,32,19,0.92)";
+    ctx.strokeStyle = rgba(INK, 0.9);
     ctx.lineWidth = 1.6;
     ctx.stroke(trail);
 
@@ -170,21 +187,21 @@
       if (r > 1) {
         ctx.beginPath();
         ctx.arc(x, y, r, 0, Math.PI * 2);
-        ctx.strokeStyle = "rgba(122,46,18,0.16)";
+        ctx.strokeStyle = rgba(ACCENT, 0.28);
         ctx.stroke();
       }
       ctx.beginPath();
       ctx.moveTo(x, y);
       ctx.lineTo(nx, ny);
-      ctx.strokeStyle = "rgba(122,46,18,0.35)";
+      ctx.strokeStyle = rgba(ACCENT, 0.6);
       ctx.stroke();
 
       x = nx; y = ny;
     }
 
     ctx.beginPath();
-    ctx.arc(x, y, 2.5, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(160,35,20,0.9)";
+    ctx.arc(x, y, 3.5, 0, Math.PI * 2);
+    ctx.fillStyle = rgba(ACCENT, 1);
     ctx.fill();
 
     requestAnimationFrame(frame);

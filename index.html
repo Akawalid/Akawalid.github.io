@@ -4,93 +4,103 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Oualid Chabane</title>
+<script>try{var t=localStorage.getItem("site-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=9">
 </head>
-<body>
+<body id="top">
 
-<header class="site-header">
-  <div class="top-bar">
-    <p class="last-updated"><span data-i18n="lastUpdated"></span>: <span data-i18n="lastUpdatedValue"></span></p>
-    <div class="lang-switch">
-      <button type="button" data-lang="en" aria-label="English">
-        <svg viewBox="0 0 60 30" width="20" height="10"><rect width="60" height="30" fill="#00247d"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#cf142b" stroke-width="2"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#cf142b" stroke-width="6"/></svg>
-        <span>English</span>
-      </button>
-      <button type="button" data-lang="fr" aria-label="Français">
-        <svg viewBox="0 0 3 2" width="20" height="13"><rect width="1" height="2" x="0" fill="#0055A4"/><rect width="1" height="2" x="1" fill="#fff"/><rect width="1" height="2" x="2" fill="#EF4135"/></svg>
-        <span>Français</span>
-      </button>
-      <button type="button" data-lang="kab" aria-label="Taqbaylit">
-        <svg viewBox="0 0 90 60" width="20" height="13"><rect width="90" height="20" y="0" fill="#1FB5E0"/><rect width="90" height="20" y="20" fill="#1CA64B"/><rect width="90" height="20" y="40" fill="#FCD116"/><text x="45" y="43" font-size="32" text-anchor="middle" fill="#D21F3C" font-family="'Noto Sans Tifinagh', sans-serif">ⵣ</text></svg>
-        <span>Taqbaylit</span>
+<div class="page">
+
+  <nav class="top-bar">
+    <a class="top-mark" href="#top">OC</a>
+    <div class="top-actions">
+      <div class="lang-switch">
+        <button type="button" data-lang="en" aria-label="English">EN</button>
+        <button type="button" data-lang="fr" aria-label="Français">FR</button>
+        <button type="button" data-lang="kab" aria-label="Taqbaylit">KAB</button>
+      </div>
+      <button type="button" class="theme-toggle" aria-label="Switch light / dark theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5a6.6 6.6 0 0 0 9.7 9.7z"/></svg>
       </button>
     </div>
+  </nav>
+
+  <header class="hero">
+    <canvas class="signal-portrait" id="signal-canvas" width="460" height="460" role="img" aria-label="Portrait of Oualid Chabane, drawn live by rotating Fourier epicycles tracing the outline"></canvas>
+    <h1 class="site-name">Oualid Chabane</h1>
+    <p class="tagline" data-i18n="tagline"></p>
+    <ul class="contact-row">
+      <li><a href="https://github.com/Akawalid" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/oualid-chabane-29a50224a" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><span class="mono">chabaneoualidfr[at]gmail.com</span></li>
+      <li><span class="mono">oualid.chabane[at]ens-paris-saclay.fr</span></li>
+    </ul>
+    <p class="hero-meta"><span data-i18n="location"></span> · <span data-i18n="contactDob"></span> <span data-i18n="dob"></span></p>
+  </header>
+
+</div>
+
+<nav class="section-nav" aria-label="Sections">
+  <div class="section-nav-inner">
+    <a href="#education" data-i18n="navEducation"></a>
+    <a href="#research" data-i18n="navResearchShort"></a>
+    <a href="#publications" data-i18n="navPublications"></a>
+    <a href="#projects" data-i18n="navProjects"></a>
+    <a href="#awards" data-i18n="navAwardsShort"></a>
+    <a href="#skills" data-i18n="navSkills"></a>
   </div>
-  <div class="header-grid">
-    <div class="header-text">
-      <img class="olive-tree" src="images/olive-tree.svg" alt="" width="420" height="330">
-      <h1 class="site-name">Oualid Chabane</h1>
-      <p class="tagline" data-i18n="tagline"></p>
-      <p class="contact-block">
-        <strong data-i18n="contactEmail"></strong>: chabaneoualidfr[at]gmail.com ·
-        <strong data-i18n="contactInstitutionalEmail"></strong>: oualid.chabane[at]ens-paris-saclay.fr ·
-        <strong data-i18n="contactGitHub"></strong>: <a href="https://github.com/Akawalid" target="_blank" rel="noopener">github.com/Akawalid</a> ·
-        <strong data-i18n="contactLinkedIn"></strong>: <a href="https://linkedin.com/in/oualid-chabane-29a50224a" target="_blank" rel="noopener">linkedin.com/in/oualid-chabane-29a50224a</a> ·
-        <strong data-i18n="contactDob"></strong>: <span data-i18n="dob"></span> ·
-        <strong data-i18n="contactLocation"></strong>: <span data-i18n="location"></span>
-      </p>
-    </div>
-    <div class="header-portrait">
-      <canvas class="signal-portrait" id="signal-canvas" role="img" aria-label="Portrait of Oualid Chabane, drawn live by rotating Fourier epicycles tracing the outline"></canvas>
-    </div>
-  </div>
-</header>
+</nav>
 
-<main>
+<div class="page">
 
-  <section id="education">
-    <h2 data-i18n="navEducation"></h2>
-    <ul class="education-list" id="education-list"></ul>
-  </section>
+  <main>
+    <section id="education">
+      <h2 data-i18n="navEducation"></h2>
+      <ul class="entries" id="education-list"></ul>
+    </section>
 
-  <section id="research">
-    <h2 data-i18n="navResearch"></h2>
-    <ul class="research-list" id="research-list"></ul>
-  </section>
+    <section id="research">
+      <h2 data-i18n="navResearch"></h2>
+      <ul class="entries" id="research-list"></ul>
+    </section>
 
-  <section id="publications">
-    <h2 data-i18n="navPublications"></h2>
-    <ul class="awards-list" id="publications-list"></ul>
-  </section>
+    <section id="publications">
+      <h2 data-i18n="navPublications"></h2>
+      <ul class="plain-list" id="publications-list"></ul>
+    </section>
 
-  <section id="projects">
-    <h2 data-i18n="navProjects"></h2>
-    <ul class="project-list" id="project-list"></ul>
-  </section>
+    <section id="projects">
+      <h2 data-i18n="navProjects"></h2>
+      <ul class="entries" id="project-list"></ul>
+    </section>
 
-  <section id="awards">
-    <h2 data-i18n="navAwards"></h2>
-    <ul class="awards-list" id="awards-list"></ul>
-  </section>
+    <section id="awards">
+      <h2 data-i18n="navAwards"></h2>
+      <ul class="plain-list" id="awards-list"></ul>
+    </section>
 
-  <section id="skills">
-    <h2 data-i18n="navSkills"></h2>
-    <ul class="skills-list" id="skills-list"></ul>
-  </section>
+    <section id="skills">
+      <h2 data-i18n="navSkills"></h2>
+      <ul class="entries compact" id="skills-list"></ul>
+    </section>
+  </main>
 
-</main>
+  <footer>
+    <span data-i18n="footer"></span>
+    <span><span data-i18n="lastUpdated"></span>: <span data-i18n="lastUpdatedValue"></span></span>
+  </footer>
 
-<footer>
-  <p data-i18n="footer"></p>
-</footer>
+</div>
 
-<script src="i18n.js"></script>
-<script src="lang.js"></script>
-<script src="projects.js"></script>
-<script src="main.js"></script>
-<script src="epicycles.js"></script>
+<script src="theme.js?v=9"></script>
+<script src="i18n.js?v=9"></script>
+<script src="lang.js?v=9"></script>
+<script src="projects.js?v=9"></script>
+<script src="main.js?v=9"></script>
+<script src="epicycles.js?v=9"></script>
 </body>
 </html>

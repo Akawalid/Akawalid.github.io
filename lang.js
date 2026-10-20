@@ -29,6 +29,39 @@
     });
   }
 
+  // one CV row: a date (or label) column on the left, the content on the right
+  function makeEntry(dateText) {
+    var li = document.createElement("li");
+    li.className = "entry";
+    var date = document.createElement("div");
+    date.className = "entry-date";
+    date.textContent = dateText.replace(/ - /g, "–");
+    var main = document.createElement("div");
+    main.className = "entry-main";
+    li.appendChild(date);
+    li.appendChild(main);
+    return { li: li, main: main };
+  }
+
+  function addLine(parent, className, text) {
+    var p = document.createElement("p");
+    p.className = className;
+    p.textContent = text;
+    parent.appendChild(p);
+    return p;
+  }
+
+  // "Degree, Institution - 16.5/20 (...)" -> degree / "Institution · 16.5/20 (...)"
+  function splitEducation(text) {
+    var grade = "";
+    var m = text.match(/^(.*) - (\d[\d.,]*\/20.*)$/);
+    if (m) { text = m[1]; grade = m[2]; }
+    var cut = text.lastIndexOf(", ");
+    var degree = cut === -1 ? text : text.slice(0, cut);
+    var place = cut === -1 ? "" : text.slice(cut + 2);
+    return { degree: degree, place: [place, grade].filter(Boolean).join(" · ") };
+  }
+
   function applyStatic() {
     var dict = t();
 
@@ -42,24 +75,19 @@
 
     if (document.getElementById("education-list")) {
       renderListInto("education-list", dict.education, function (entry) {
-        var li = document.createElement("li");
+        var e = makeEntry(entry.years);
+        var parts = splitEducation(entry.text);
 
-        var titleP = document.createElement("p");
-        titleP.className = "entry-title";
-        var strong = document.createElement("strong");
-        strong.textContent = entry.years;
-        titleP.appendChild(strong);
-        titleP.appendChild(document.createTextNode(" - " + entry.text));
-        li.appendChild(titleP);
+        addLine(e.main, "entry-title", parts.degree);
+        if (parts.place) addLine(e.main, "entry-sub", parts.place);
 
         if (entry.coursework) {
-          var bodyP = document.createElement("p");
-          bodyP.className = "entry-body";
-          var label = document.createElement("strong");
-          label.textContent = dict.courseworkLabel;
+          var bodyP = addLine(e.main, "entry-text", "");
+          var label = document.createElement("span");
+          label.className = "entry-label";
+          label.textContent = dict.courseworkLabel + ": ";
           bodyP.appendChild(label);
-          bodyP.appendChild(document.createTextNode(": " + entry.coursework));
-          li.appendChild(bodyP);
+          bodyP.appendChild(document.createTextNode(entry.coursework));
         }
 
         if (entry.moreCoursework) {
@@ -68,57 +96,30 @@
           var summary = document.createElement("summary");
           summary.textContent = dict.moreDetails;
           details.appendChild(summary);
-          var moreP = document.createElement("p");
-          moreP.textContent = entry.moreCoursework;
-          details.appendChild(moreP);
-          li.appendChild(details);
+          addLine(details, "entry-text", entry.moreCoursework);
+          e.main.appendChild(details);
         }
 
-        return li;
+        return e.li;
       });
     }
 
     if (document.getElementById("skills-list")) {
       renderListInto("skills-list", dict.skills, function (entry) {
-        var li = document.createElement("li");
-
-        var titleP = document.createElement("p");
-        titleP.className = "entry-title";
-        var strong = document.createElement("strong");
-        strong.textContent = entry.label;
-        titleP.appendChild(strong);
-        li.appendChild(titleP);
-
-        var bodyP = document.createElement("p");
-        bodyP.className = "entry-body";
-        bodyP.appendChild(document.createTextNode(entry.text));
-        li.appendChild(bodyP);
-
-        return li;
+        var e = makeEntry(entry.label);
+        addLine(e.main, "entry-text", entry.text);
+        return e.li;
       });
     }
 
-    if (document.getElementById("awards-list")) {
-      renderListInto("awards-list", dict.awards, function (text) {
+    ["awards", "publications"].forEach(function (key) {
+      if (!document.getElementById(key + "-list")) return;
+      renderListInto(key + "-list", dict[key], function (text) {
         var li = document.createElement("li");
-        var p = document.createElement("p");
-        p.className = "entry-title";
-        p.appendChild(document.createTextNode(text));
-        li.appendChild(p);
+        li.textContent = text;
         return li;
       });
-    }
-
-    if (document.getElementById("publications-list")) {
-      renderListInto("publications-list", dict.publications, function (text) {
-        var li = document.createElement("li");
-        var p = document.createElement("p");
-        p.className = "entry-title";
-        p.appendChild(document.createTextNode(text));
-        li.appendChild(p);
-        return li;
-      });
-    }
+    });
 
     document.querySelectorAll(".lang-switch button").forEach(function (btn) {
       btn.classList.toggle("active", btn.getAttribute("data-lang") === getLang());
@@ -142,5 +143,5 @@
     window.dispatchEvent(new CustomEvent("langchange", { detail: { lang: getLang() } }));
   });
 
-  window.siteLang = { getLang: getLang, t: t, setLang: setLang };
+  window.siteLang = { getLang: getLang, t: t, setLang: setLang, makeEntry: makeEntry, addLine: addLine };
 })();

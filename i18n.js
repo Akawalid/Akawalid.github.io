@@ -29,12 +29,14 @@ window.i18n = {
     navEducation: "Education",
     navSkills: "Skills",
     navResearch: "Research Experience",
+    navResearchShort: "Research",
     navPublications: "Publications",
     publications: [
       "O. Chabane, L. Sun, S. Chevallier, J. Peter, J.-L. Hantrais-Gervois. Manuscript in preparation, based on the machine learning challenge described above."
     ],
     navProjects: "Projects",
     navAwards: "Awards & Honours",
+    navAwardsShort: "Awards",
     about: "I am a Master's student in Mathematics, Vision and Learning (MVA) at École Normale Supérieure Paris-Saclay, with a background in a Double Bachelor's Degree in Mathematics and Computer Science and a Magistère in Computer Science at the University of Paris-Saclay. My work spans scientific machine learning, geometric and equivariant deep learning, and formal program verification, through research internships at LISN and the Laboratory of Formal Methods. I also coach students for the African and International Olympiads in AI.",
     education: [
       { years: "2026 - 2027", text: "MVA Master's (Mathematics, Vision and Learning), École Normale Supérieure Paris-Saclay", coursework: "(in construction) Optimal Transport for Machine Learning, Convex Optimization and Applications, Geometry Processing and Geometric Deep Learning, Reinforcement Learning, Learning for Time Series" },
@@ -88,12 +90,14 @@ window.i18n = {
     navEducation: "Formation",
     navSkills: "Compétences",
     navResearch: "Expérience de recherche",
+    navResearchShort: "Recherche",
     navPublications: "Publications",
     publications: [
       "O. Chabane, L. Sun, S. Chevallier, J. Peter, J.-L. Hantrais-Gervois. Manuscrit en préparation, basé sur le défi d'apprentissage automatique décrit ci-dessus."
     ],
     navProjects: "Projets",
     navAwards: "Distinctions et engagements",
+    navAwardsShort: "Distinctions",
     about: "Je suis étudiant en master Mathématiques, Vision et Apprentissage (MVA) à l'École Normale Supérieure Paris-Saclay, avec une double licence en mathématiques et informatique et une Magistère en informatique à l'Université Paris-Saclay. Mes travaux portent sur l'apprentissage scientifique, l'apprentissage profond géométrique et équivariant, et la vérification formelle de programmes, à travers des stages de recherche au LISN et au Laboratoire Méthodes Formelles. J'encadre également des élèves pour les Olympiades africaines et internationales d'IA.",
     education: [
       { years: "2026 - 2027", text: "Master MVA (Mathématiques, Vision et Apprentissage), École Normale Supérieure Paris-Saclay", coursework: "(en construction) Transport optimal pour l'apprentissage automatique, Optimisation convexe et applications, Traitement de la géométrie et apprentissage profond géométrique, Apprentissage par renforcement, Apprentissage pour les séries temporelles" },
@@ -147,12 +151,14 @@ window.i18n = {
     navEducation: "ⴰⵙⵍⵎⴷ",
     navSkills: "ⵜⵉⵣⵎⴰⵔ",
     navResearch: "ⵜⴰⵔⵎⵉⵜ ⵏ ⵓⵏⴰⴷⵉ",
+    navResearchShort: "ⵜⴰⵔⵎⵉⵜ ⵏ ⵓⵏⴰⴷⵉ",
     navPublications: "ⵜⵉⵔⴰ (Publications)",
     publications: [
       "O. Chabane, L. Sun, S. Chevallier, J. Peter, J.-L. Hantrais-Gervois. Adlis (manuscript) deg uheggi, yebna ɣef usenfar n almmud ussnan n tmacinin yettwabeggnen sennig."
     ],
     navProjects: "ⵉⵙⴻⵏⴼⴰⵔⴻⵏ",
     navAwards: "Prix akked Uqadeṛ",
+    navAwardsShort: "Prix akked Uqadeṛ",
     about: "ⴷ ⴰⵏⵍⵎⴰⴷ ⵏ Master deg Mathématiques, Vision d Almad (MVA) ɣer École Normale Supérieure Paris-Saclay. ⵣⵔⵉⵖ ⵣⵉⴽ ⴳ ⵛⵛⴰⵔⴰ ⵏ ⵜⵓⵙⵏⴰⴽⵜ ⴰⴽⴽⴷ ⵓⵙⵙⵏⴰⵏ ⵓⵃⵙⴰⴱ, ⴰⴽⴽⴷ Magistère deg ⵓⵙⵙⵏⴰⵏ ⵓⵃⵙⴰⴱ ɣer Tasdawit n Paris-Saclay. ⴰⵅⴷⴰⵎ-ⵉⵏⵓ ⵢⴻⵜⵜⴰⵡⵉ ⴰⵍⵎⵎⵓⴷ ⵓⵙⵙⵏⴰⵏ ⵏ ⵜⵎⴰⵛⵉⵏⵉⵏ, deep learning ⵓⴷⵎⴰⵡⴰⵏ, ⴰⴽⴽⴷ ⴰⵙⴻⵍⵇⴻⴷ ⵓⵏⵚⵉⴱ ⵏ ⵢⵉⴱⵔⴰⵎⴻⵏ, ⵙⴳⵔ ⵜⵍⴻⵎⵎⵉⵙⵜ ⵏ ⵓⵏⴰⴷⵉ ɣer LISN ⴰⴽⴽⴷ Laboratoire Méthodes Formelles. ⵙⵙⴻⵍⵎⴰⴷⴻⵖ ⴰⵖ ⵉⵏⴻⵍⵎⴰⴷⴻⵏ ⵉ Olympiades n IA n Tefriqt d umaḍal.",
     education: [
       { years: "2026 - 2027", text: "Master MVA (Mathématiques, Vision d Almad), École Normale Supérieure Paris-Saclay", coursework: "(deg lqaɛa) Optimal Transport for Machine Learning, Convex Optimization and Applications, Geometry Processing and Geometric Deep Learning, Reinforcement Learning, Learning for Time Series" },
